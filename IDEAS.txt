@@ -2,7 +2,7 @@ HTML STREAMING WEBPAGE IDEAS
 ============================
 
 FOLDER ORGANISATION
-	+ home.html <!-- home page -->
+	+ index.html <!-- home page --> (index name important for http protocol)
 	+ movies.html <!-- Only movies -->
 	+ tvshows.html <!-- Only tv shows -->
 	+ style.css
