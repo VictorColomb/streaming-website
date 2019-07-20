@@ -23,16 +23,15 @@ FOLDER ORGANISATION
 		|_ Shows
 			|_ tv_show1
 				|_ ressources
-				Seasons
-					|_ S1
-						|_E1
-							|_ source
-							e1.html
-						|_E2
-						...
-					|_ S2
+				|_ S1
+					|_E1
+						|_ source
+						e1.html
+					|_E2
 					...
-				name.txt
+				|_ S2
+				...
+				+ name.txt
 
 		...
 

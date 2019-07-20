@@ -4,65 +4,71 @@
   <head>
 
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Streaming</title>
-
+    <link rel="icon" href="ressources/favicon.jpg">
     <!--Style Sheet-->
     <link rel="stylesheet" href="ressources/style.css">
     <style media="screen">
       .descriptionBox{
         margin: 0 0 50px 0;
       }
-
+      @media screen and (max-width: 738px) {
+        .showItem img {
+          width: 110px;
+          height: 146.6px;
+        }
+      }
+      @media screen and (max-width: 738px) {
+        .movieItem img {
+          width: 110px;
+          height: 146.6px;
+        }
+      }
     </style>
   </head>
 
 
   <body>
-    <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
+    <div id="header">
+      <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
 
-      <div class="leftMenu">
-        <ul>
-          <li>
-            <a href="movies.html">Movies</a>
-          </li>
-          <li>
-            <a href="tvshows.html">TV Shows</a>
-          </li>
+        <div class="leftMenu">
+          <ul>
+            <li>
+              <a href="movies.html">Movies</a>
+            </li>
+            <li>
+              <a href="tvshows.html">TV Shows</a>
+            </li>
         </ul>
-    </div>
-      <!-- ACTIVATE SEARCH BAR -->
-      <div class="searchbar">
-        <input type="text" name="search_box" placeholder="Search...">
-    
-    <div id="content">
-      <div class="contentContinueWatching">
-        <div class="customTitle">
-          <small>Continue Watching</small>
+      </div>
+        <!-- ACTIVATE SEARCH BAR -->
+        <div class="searchbar">
+          <input type="text" name="search_box" placeholder="Search...">
         </div>
+    </div>
 
-        <ul>
-          <!-- Will have to be PHP generated  -->
-          <li>
-              <div class="liImage">
-                <img src="ressources/friends1.jpg" width="100"></img>
-              </div>
-              <div class="liText">
-                <small>Friends Season 1</small>
-              </div>
-          </li>
-
-        </ul>
+    <div id="content" style="margin: 0;">
+      <div class="contentMovies" style="margin-left:4%; margin-right:2%; width: 41.5%;">
+        <h3>Movies</h3>
+        <div class="movieItem">
+          <a href="videos/movies/shutterisland/shutterisland/html" title="Shutter Island">
+            <img src="videos/movies/shutterisland/thumb.jpg">
+            <span><p>Shutter Island</p></span>
+          </a>
+        </div>
       </div>
-
-      <div class="contentMovies">
-        <small>Movies</small>
+      <div class="contentTVShow" style="margin-right:4%; margin-left:2%; width: 41.5%;">
+        <h3>TV Shows</h3>
+        <div class="showItem">
+          <a href="videos/shows/friends/friends.html" title="Friends">
+            <img src="videos/shows/friends/thumb.jpg">
+            <span><p>Friends</p></span>
+          </a>
+        </div>
       </div>
-
-      <div class="contentTVShow">
-        <small>TV-Shows</small>
-      </div>
-
     </div>
 
   </body>
