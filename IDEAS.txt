@@ -51,7 +51,7 @@ TO IMPLEMENT
 RANDOM
 	Search phrase formatting js function :
 		function searchMovie() {
-			var e = $("input[name=keyword]").val();
+			var e = $("input[name=search_box]").val();
 			"" !== e.trim() && (e = e.replace(/(<([^>]+)>)/gi, "").replace(/[`~!@#$%^&*()_|\=?;:'",.<>\{\}\[\]\\\/]/gi, ""), e = e.split(" ").join("+"), window.location.href = base_url + "search/" + e)
 		}
 		Injects search phrase in get url base_url/search/search_phrase
