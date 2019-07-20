@@ -1,0 +1,59 @@
+body{
+  background-color: #282c34;
+  color: #939caa;
+}
+
+#header{
+  background: #21252b;
+  color: #939caa;
+  overflow: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.headerMenu{
+  float: left;
+  padding: 12px 0;
+  display: inline-block;
+  margin: 0 25px;
+}
+
+.headerLogo{
+  padding: 12px 0;
+  float: right;
+  display: inline-block;
+  position: relative;
+  left: -50%;
+  text-align: left;
+}
+
+.headerSearch{
+  float: right;
+  padding: 12px 0;
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.headerLogin{
+  float: right;
+  padding: 12px 0;
+  display: inline-block;
+}
+
+.contentContinueWatching ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contentContinueWatching ul li{
+  style: inline-block;
+  margin: 12px;
+}
+
+.contentContinueWatching ul li
+
+.customTitle{
+  padding: 12px;
+}
