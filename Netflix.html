@@ -8,12 +8,17 @@
 
     <!--Style Sheet-->
     <style media="screen">
+      body {
+        background-color: #ccc;
+      }
+
       #header{
         background: black;
         color: white;
         overflow: auto;
         padding-left: 25px;
         padding-right: 25px;
+        border-radius: 5px;
       }
 
       #header a{
@@ -23,14 +28,13 @@
       }
 
       #header a:hover{
-        color: red !important;
+        color: #ccc !important;
       }
 
       .logo{
         float: left;
         display: inline-block;
-        background: red;
-        padding: 20px;
+        padding-top: 12px;
         margin-right: 25px;
       }
 
@@ -48,20 +52,24 @@
         padding: 20px;
       }
 
-      .rightMenu{
+      .searchbar{
         float: right;
         display: inline-block;
         color: black;
+        padding-top:16px;
       }
-      .rightMenu ul{
-        list-style: none;
-        padding: 0;
-        margin: 0;
+      .searchbar input[type="text"]{
+        padding: 5px;
+        box-sizing: border-box;
+        border-width: 1px;
+        border-radius: 3px;
+        border-color: #444;
+        background-color: #ddd;
+        background-image: url('/ressources/searchicon.png');
+        background-position: 2px 2px;
+        background-repeat: no-repeat;
       }
-      .rightMenu ul li{
-        display: inline-block;
-        padding: 20px;
-      }
+
 
       #largeImage{
         padding: 200px 25px;
@@ -78,31 +86,6 @@
         margin: 0 0 50px 0;
       }
 
-      .button1{
-        display: inline-block;
-        padding: 12px 25px;
-        background: black;
-        color: white;
-        cursor: pointer;
-      }
-
-      .button1:hover{
-        background: red;
-        padding: 11px 24px;
-      }
-
-      .button2{
-        display: inline-block;
-        padding: 10px 23px;
-        border: 2px solid black;
-        color: white;
-        cursor: pointer;
-      }
-
-      .button2:hover{
-        background: red;
-      }
-
     </style>
   </head>
 
@@ -110,31 +93,22 @@
   <body>
     <div id="header">
 
-      <div class="logo">logo</div>
+      <div class="logo"><img src=ressources/netflix.jpg height=33.2px width=20px></div>
 
       <div class="leftMenu">
         <ul>
           <li>
-            <a href="a.html">Browse</a>
-          </li>
-          <li>
             <a href="a.html">Movies</a>
           </li>
           <li>
-            <a href="a.html">Series</a>
+            <a href="a.html">TV Shows</a>
           </li>
         </ul>
       </div>
 
-      <div class="rightMenu">
-        <ul>
-          <li>
-            <a href="Browse.html">Search</a>
-          </li>
-          <li>
-            <a href="DVD.html">Username</a>
-          </li>
-        </ul>
+      <!-- ACTIVATE SEARCH BAR -->
+      <div class="searchbar">
+        <input type="text" name="search_box" placeholder="Search..."></textarea>
       </div>
 
     </div>
@@ -150,8 +124,6 @@
            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
            culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <div class="button1">Button 1</div>
-      <div class="button2">Button 2</div>
     </div>
 
   </body>
