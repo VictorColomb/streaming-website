@@ -104,6 +104,18 @@ html ul {
   padding-top: 20px;
   margin: 0 5%;
 }
+#content h3{
+  color: white;
+  background-color: black;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+#content a{
+  text-decoration: none;
+}
+
 .contentMovies {
   display: inline-block;
   width: 100%;
