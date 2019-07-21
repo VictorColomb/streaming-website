@@ -12,5 +12,7 @@ for i in range(len(pp)):
     while pp[i][k]!='\\':
         k-=1
     pp[i]=pp[i][k+1:]
+os.chdir('..')
+os.chdir('..')
 for e in pp:
-    subprocess.Popen([sys.executable,e])
+    subprocess.Popen([sys.executable,'epListMaker.py',e])

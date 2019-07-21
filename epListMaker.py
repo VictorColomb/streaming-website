@@ -2,10 +2,10 @@ import os
 import sys
 import pathlib as p
 
-if len(sys.argv)==0:
+if len(sys.argv)<=1:
     basePath = input('Tv show name : ')
 else:
-    basePath = sys.argv[0]
+    basePath = sys.argv[1]
 os.chdir('videos/shows/'+basePath)
 os.chdir('C:/Users/vicco/Documents/Streaming website/videos/shows/Friends')
 currentPath=p.Path.cwd()
