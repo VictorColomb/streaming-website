@@ -13,14 +13,18 @@
 
   <body>
     <div id="movieOverlay">
-      <div class="movieOverlayTitle">
-        <h1 id="overlayTitle"></h1>
-        <div class="showEpSelector">
-
+      <div class="movieOverlayFrame">
+        <div id="overlayTitleDiv">
+          <h1 id="overlayTitle"></h1>
         </div>
-        <video id="videoPlayer" data-dashjs-player autoplay src="" controls>
-          Your browser does not support the VIDEO tag and/or RTP streams.
-        </video>
+        <div id="showEpSelector">
+          <!-- List of seasons and episodes, buttons linked to js function that should bring up the desired ep -->
+        </div>
+        <div id="videoPlayerDiv">
+          <video id="videoPlayer" data-dashjs-player autoplay src="" controls>
+            Your browser does not support the VIDEO tag and/or RTP streams.
+          </video>
+        </div>
       </div>
       <div class="movieOverlayClose"  onclick="OverlayOff()">
         <img src="ressources/Icons/close.png">
