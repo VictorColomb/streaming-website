@@ -7,6 +7,7 @@
     <title>Streaming - Movies</title>
     <link rel="stylesheet" href="ressources/style.css">
     <script type="text/javascript" src="scripts.js"></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
   </head>
 
 
@@ -14,9 +15,12 @@
 
     <div id="movieOverlay">
       <div class="movieOverlayTitle">
-        <h1>Shutter Island</h1>
+        <h1 id="overlayTitle"></h1>
+        <video id="videoPlayer" data-dashjs-player autoplay src="" controls>
+          Your browser does not support the VIDEO tag and/or RTP streams.
+        </video>
       </div>
-      <div class="movieOverlayClose"  onclick="MovieOverlayOff()">
+      <div class="movieOverlayClose"  onclick="OverlayOff()">
         <img src="ressources/Icons/close.png">
       </div>
     </div>
@@ -45,7 +49,7 @@
     </div>
 
     <div id="content" style="margin-top:30px;">
-      <div class="movieItem" onclick="MovieOverlayOn()">
+      <div class="movieItem" onclick="MovieOverlayOn('Shutter Island')">
         <div class="movie_img_wrap">
           <img src="videos/movies/Shutter Island/thumb.jpg" width="100%">
           <p class="movie_image_description">Shutter Island</p>
