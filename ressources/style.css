@@ -111,7 +111,17 @@ html ul {
   padding: 5px;
   border-radius: 5px;
   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+
+  /* TRANSITIONS */
+  transition: .5s;
 }
+
+#content h3:hover{
+  color: #ccc;
+  transform: scale(1.1);
+}
+
 #content a{
   text-decoration: none;
 }
@@ -181,6 +191,7 @@ html ul {
 .contentTVShow {
   display: inline-block;
   width: 100%;
+  cursor: pointer;
 }
 .showItem {
   position: relative;
@@ -246,7 +257,6 @@ html ul {
   background-color: black;
   border-radius: 15px;
   z-index: 2;
-  cursor: pointer;
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 15px 28px 0 rgba(0, 0, 0, 4);
   overflow: auto;
@@ -256,6 +266,7 @@ html ul {
   top: 1%;
   left: 1%;
   width: 5%;
+  cursor: pointer;
 }
 #overlayTitleDiv {
   width: 100%;
@@ -270,6 +281,7 @@ html ul {
   color: white;
   font-family: sans-serif;
   box-sizing: border-box;
+  float: left;
 }
 .movieOverlayDescription::-webkit-scrollbar{
   width:0 !important;
