@@ -78,13 +78,16 @@ html ul {
 
 
 @media screen and (max-width: 550px) {
-  .logo, .leftMenu, .searchbar {
+  .logo, .leftMenu, .search {
     width: 100%;
   }
-  .searchbar {
+  .search {
     float: left;
     padding: 16px 0;
     margin-bottom: 5px;
+  }
+  .searchbar, .searchIcon {
+    float: left;
   }
   .leftMenu {
     margin-top: 10px;
@@ -101,7 +104,6 @@ html ul {
   padding-top: 20px;
   margin: 0 5%;
 }
-
 .contentMovies {
   display: inline-block;
   width: 100%;
@@ -121,14 +123,12 @@ html ul {
   height: 200px;
   border-radius: 8px;
   display: inline-block;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 30px 0 rgba(0, 0, 0, 0.4);
 
   /* TRANSITIONS */
   transition: filter .5s, -webkit-filter .5s;
   transition: transform .5s;
  }
-
 .movie_image_description {
   margin: 0;
   font-weight: 400;
@@ -159,14 +159,12 @@ html ul {
   visibility: visible;
   opacity: 1;
 }
-
 @media screen and (max-width: 840px) {
   .movieItem img {
     width: 130px;
     height: 173.3px;
   }
 }
-
 
 .contentTVShow {
   display: inline-block;
@@ -185,14 +183,11 @@ html ul {
   height: 200px;
   border-radius: 8px;
   display: inline-block;
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 30px 0 rgba(0, 0, 0, 0.4);
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 30px 0 rgba(0, 0, 0, 0.4);
   /* TRANSITIONS */
   transition: filter .5s, -webkit-filter .5s;
   transition: transform .5s;
  }
-
  .tv_image_description {
    margin: 0;
    font-weight: 400;
@@ -208,69 +203,21 @@ html ul {
    visibility: hidden;
    opacity: 0;
    background-color: rgba(0, 0, 0, 0.5);
-
    /* TRANSITIONS */
    transition: opacity .2s, visibility .2s;
  }
-
  .tv_img_wrap:hover img{
    filter: blur(2px);
    -webkit-filter: blur(2px);
    transform: scale(1.1);
  }
-
  .tv_img_wrap:hover .tv_image_description{
    visibility: visible;
    opacity: 1;
  }
-
 @media screen and (max-width: 840px) {
   .showItem img {
     width: 130px;
     height: 173.3px;
   }
-}
-
-#movieOverlay{
-  position: fixed;
-  display: none;
-  width: 75%;
-  height: 75%;
-  top: 12.5%;
-  left: 12.5%;
-  margin: auto;
-  background-color: black;
-  border-radius: 15px;
-  z-index: 2;
-  cursor: pointer;
-  color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 15px 28px 0 rgba(0, 0, 0, 4);
-}
-
-.movieOverlayClose img{
-  position: absolute;
-  top: 1%;
-  left: 1%;
-  width: 5%;
-}
-
-.movieOverlayTitle{
-  position: absolute;
-  width: 100%;
-  top: 1%;
-  text-align: center;
-}
-
-.movieOverlayDescription{
-  position: absolute;
-  width: 85%;
-  height: 25%;
-  bottom: 5%;
-  left: 7.5%;
-  text-align: justify;
-  overflow-y: scroll;
-}
-.movieOverlayDescription::-webkit-scrollbar{
-  width:0 !important;
-  background: transparent;
 }

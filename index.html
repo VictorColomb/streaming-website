@@ -33,21 +33,8 @@
 
   <body>
 
-    <div id="movieOverlay">
-      <div class="movieOverlayTitle">
-        <h1>Shutter Island</h1>
-      </div>
-      <div class="movieOverlayClose"  onclick="MovieOverlayOff()">
-        <img src="ressources/Icons/close.png">
-      </div>
-      <div class="movieOverlayDescription">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </div>
-
     <div id="header">
-      <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
-
+      <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a></div>
         <div class="leftMenu">
           <ul>
             <li>
@@ -60,33 +47,30 @@
       </div>
         <!-- ACTIVATE SEARCH BAR -->
         <div class="search">
-          <div class="searchbar">
-            <input type="text" value="" name="search_box" placeholder="Search..." autofocus>
-          </div>
           <div class="searchIcon">
             <img src="ressources/Icons/search.png">
+          </div>
+          <div class="searchbar">
+            <input type="text" value="" name="search_box" placeholder="Search...">
           </div>
         </div>
     </div>
 
     <div id="content" style="margin: 0;">
-
       <div class="contentMovies" style="margin-left:4%; margin-right:2%; width: 41.5%;">
         <h3>Movies</h3>
-
-        <div class="movieItem" onclick="MovieOverlayOn()">
+        <div class="movieItem">
+          <a href="videos/movies/shutterisland/shutterisland.html">
             <div class="movie_img_wrap">
               <img src="videos/movies/shutterisland/thumb.jpg" width="100%">
               <p class="movie_image_description">Shutter Island</p>
             </div>
+          </a>
         </div>
-
       </div>
-
 
       <div class="contentTVShow" style="margin-right:4%; margin-left:2%; width: 41.5%;">
         <h3>TV Shows</h3>
-
         <div class="showItem">
           <a href="videos/shows/friends/friends.html">
             <div class="tv_img_wrap">
@@ -95,10 +79,8 @@
             </div>
           </a>
         </div>
-
       </div>
     </div>
 
   </body>
-
 </html>
