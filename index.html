@@ -45,29 +45,45 @@
         </ul>
       </div>
         <!-- ACTIVATE SEARCH BAR -->
-        <div class="searchbar">
-          <input type="text" name="search_box" placeholder="Search...">
+        <div class="search">
+          <div class="searchbar">
+            <input type="text" value="" name="search_box" placeholder="Search..." autofocus>
+          </div>
+          <div class="searchIcon">
+            <img src="ressources/Icons/search.png">
+          </div>
         </div>
     </div>
 
     <div id="content" style="margin: 0;">
+
       <div class="contentMovies" style="margin-left:4%; margin-right:2%; width: 41.5%;">
         <h3>Movies</h3>
+
         <div class="movieItem">
-          <a href="videos/movies/shutterisland/shutterisland/html" title="Shutter Island">
-            <img src="videos/movies/shutterisland/thumb.jpg">
-            <span><p>Shutter Island</p></span>
+          <a href="videos/movies/shutterisland/shutterisland/html">
+            <div class="movie_img_wrap">
+              <img src="videos/movies/shutterisland/thumb.jpg" width="100%">
+              <p class="movie_image_description">Shutter Island</p>
+            </div>
           </a>
         </div>
+
       </div>
+
+
       <div class="contentTVShow" style="margin-right:4%; margin-left:2%; width: 41.5%;">
         <h3>TV Shows</h3>
+
         <div class="showItem">
-          <a href="videos/shows/friends/friends.html" title="Friends">
-            <img src="videos/shows/friends/thumb.jpg">
-            <span><p>Friends</p></span>
+          <a href="videos/shows/friends/friends.html">
+            <div class="tv_img_wrap">
+              <img src="videos/shows/friends/thumb.jpg">
+              <p class="tv_image_description">Friends</p>
+            </div>
           </a>
         </div>
+
       </div>
     </div>
 

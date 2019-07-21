@@ -46,6 +46,10 @@ TO IMPLEMENT
 	Tv show => seasons and episodes...
 	Search bar (most likely php needed)
 
+LOGIN
+	Cookies + accounts to : secure website
+													enable a continue tv show functionality
+
 RANDOM
 	Search phrase formatting js function :
 		function searchMovie() {

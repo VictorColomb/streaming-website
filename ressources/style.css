@@ -1,5 +1,5 @@
 body {
-  background-color: #ccc;
+  background: radial-gradient( circle, transparent 50%, black 150%),#ccc;
 }
 html ul {
   list-style: none;
@@ -15,6 +15,7 @@ html ul {
   padding-right: 25px;
   border-radius: 5px;
   box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 #header a{
   font-style: none;
@@ -42,23 +43,40 @@ html ul {
   display: inline-block;
   padding: 20px;
 }
+
+.searchIcon{
+  display: inline-block;
+  float: right;
+  padding-top: 20px;
+  padding-right: 5px;
+}
+
+.searchIcon img{
+  width: 20px;
+}
+
 .searchbar{
   float: right;
   display: inline-block;
-  color: black;
-  padding:16px;
+  color: white;
+  padding-right: 5px;
+  padding-top: 15px
 }
+
 .searchbar input[type="text"]{
+  color: white;
   padding: 5px;
-  box-sizing: border-box;
-  border-width: 1px;
+  /*box-sizing: border-box;*/
+  border-width: 2px;
   border-radius: 3px;
   border-color: #444;
-  background-color: #ddd;
+  background-color:  transparent;/*#ddd;*/
 }
 .searchbar input[type="text"]:focus {
-  outline: none !important;
+  outline-color: #444;
 }
+
+
 @media screen and (max-width: 550px) {
   .logo, .leftMenu, .searchbar {
     width: 100%;
@@ -96,26 +114,49 @@ html ul {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+
 .movieItem img {
   width: 150px;
   height: 200px;
   border-radius: 8px;
   display: inline-block;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 30px 0 rgba(0, 0, 0, 0.4);
+
+  /* TRANSITIONS */
+  transition: filter .5s, -webkit-filter .5s;
  }
-.movieItem span{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  padding-bottom: 10px;
-}
-.movieItem p {
+
+.movie_image_description {
   margin: 0;
   font-weight: 400;
   text-align: center;
   color: white;
+  position: absolute;
+  top: 50%;
+  left: 0%; /* WTF ? 50 % marche pas */
+  width: 100%;
+  height: auto;
+  padding: 5px 0;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* TRANSITIONS */
+  transition: opacity .2s, visibility .2s;
 }
+
+.movie_img_wrap:hover img{
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.movie_img_wrap:hover .movie_image_description{
+  visibility: visible;
+  opacity: 1;
+}
+
 @media screen and (max-width: 840px) {
   .movieItem img {
     width: 130px;
@@ -141,21 +182,43 @@ html ul {
   height: 200px;
   border-radius: 8px;
   display: inline-block;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 30px 0 rgba(0, 0, 0, 0.4);
+
+  /* TRANSITIONS */
+  transition: filter .5s, -webkit-filter .5s;
  }
-.showItem span{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  padding-bottom: 10px;
-}
-.showItem p {
-  margin: 0;
-  font-weight: 400;
-  text-align: center;
-  color: white;
-}
+
+ .tv_image_description {
+   margin: 0;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   position: absolute;
+   top: 50%;
+   left: 0%; /* WTF ? 50 % marche pas */
+   width: 100%;
+   height: auto;
+   padding: 5px 0;
+   border-radius: 5px;
+   visibility: hidden;
+   opacity: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+
+   /* TRANSITIONS */
+   transition: opacity .2s, visibility .2s;
+ }
+
+ .tv_img_wrap:hover img{
+   filter: blur(2px);
+   -webkit-filter: blur(2px);
+ }
+
+ .tv_img_wrap:hover .tv_image_description{
+   visibility: visible;
+   opacity: 1;
+ }
+
 @media screen and (max-width: 840px) {
   .showItem img {
     width: 130px;
