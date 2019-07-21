@@ -10,7 +10,8 @@
     <link rel="icon" href="ressources/favicon.jpg">
     <!--Style Sheet-->
     <link rel="stylesheet" href="ressources/style.css">
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style media="screen">
       .descriptionBox{
         margin: 0 0 50px 0;
@@ -34,10 +35,16 @@
   <body>
 
     <div id="movieOverlay">
-      <div class="movieOverlayTitle">
-        <h1 id="overlayTitle">Shutter Island</h1>
+      <div class="movieOverlayFrame">
+        <h1 id="overlayTitle"></h1>
+        <div class="showEpSelector">
+
+        </div>
+        <video id="videoPlayer" data-dashjs-player autoplay src="" controls>
+          Your browser does not support the VIDEO tag and/or RTP streams.
+        </video>
       </div>
-      <div class="movieOverlayClose"  onclick="MovieOverlayOff()">
+      <div class="movieOverlayClose"  onclick="OverlayOff()">
         <img src="ressources/Icons/close.png">
       </div>
     </div>
@@ -68,7 +75,7 @@
     <div id="content" style="margin: 0;">
       <div class="contentMovies" style="margin-left:4%; margin-right:2%; width: 41.5%;">
         <a href="movies.html"><h3>Movies</h3></a>
-        <div class="movieItem" onclick="MovieOverlayOn()">
+        <div class="movieItem" onclick="MovieOverlayOn('Shutter Island')">
           <div class="movie_img_wrap">
             <img src="videos/movies/Shutter Island/thumb.jpg" width="100%">
             <p class="movie_image_description">Shutter Island</p>
@@ -78,7 +85,7 @@
 
       <div class="contentTVShow" style="margin-right:4%; margin-left:2%; width: 41.5%;">
         <a href="tvshows.html"><h3>TV Shows</h3></a>
-        <div class="showItem" onclick="MovieOverlayOn()">
+        <div class="showItem" onclick="ShowOverlayOn('Friends')">
           <div class="tv_img_wrap">
             <img src="videos/shows/Friends/thumb.jpg">
             <p class="tv_image_description">Friends</p>

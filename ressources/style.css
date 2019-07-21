@@ -249,10 +249,10 @@ html ul {
 #movieOverlay{
   position: fixed;
   display: none;
-  width: 75%;
-  height: 75%;
+  width: 80%;
+  height: 80%;
   top: 12.5%;
-  left: 12.5%;
+  left: 10%;
   margin: auto;
   background-color: black;
   border-radius: 15px;
@@ -267,13 +267,29 @@ html ul {
   width: 5%;
   cursor: pointer;
 }
-.movieOverlayTitle{
+#overlayTitle{
   position: absolute;
   width: 100%;
   top: 1%;
   text-align: center;
+<<<<<<< HEAD
+=======
+  color: white;
+  font-family: sans-serif;
+  float: left;
+>>>>>>> 67a5bf60f9aaa4d5cdead935f0e91779c8d3ee93
 }
 .movieOverlayDescription::-webkit-scrollbar{
   width:0 !important;
   background: transparent;
+}
+#videoPlayer {
+  width: 60%;
+  position: absolute;
+  top: 80px;
+  left: 20%;
+}
+#showEpSelector {
+  display:none;
+  width: 100%;
 }
