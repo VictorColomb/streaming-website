@@ -29,9 +29,9 @@ while k<len(pp):
         del pp[k]
         del pathList[k]
 output=open('epList.js','w')
-print('function showOpenEp(season,episode) {','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E"+episode+\"/vid.mpd\";','document.getElementById(\"videoPlayer\").src = vidPath;','document.getElementById(\"videoPlayer\").style.display=\"block\"; }','','function loadEpList() {','epList = \'', sep='\n',end='',file=output)
+print('function showOpenEp(season,episode) {','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E"+episode+\"/vid.mpd\";','document.getElementById(\"videoPlayer\").src = vidPath;','document.getElementById(\"videoPlayer\").style.display=\"block\"; }','','epList = \'', sep='\n',end='',file=output)
 if pp==[]:
-    print('<p>No episodes</p>\"','document.getElementById("showEpSelector").innerHTML = epList;}',sep='\n',file=output)
+    print('<p>No episodes</p>\"','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',file=output)
     sys.exit(0)
 
 ppp=[int(x[1:]) for x in pp]
@@ -79,5 +79,5 @@ for i in range(len(ppp)):
         for j in range(len(PPP)):
             print('<button class=\"loadButton\" onclick=\"showOpenEp(',ppp[i],',',PPP[j],')\">',PPP[j],'</button>', sep='',end='',file=output)
     os.chdir('..')
-print('\'','document.getElementById("showEpSelector").innerHTML = epList; }',sep='\n',end='',file=output)
+print('\'','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',end='',file=output)
 output.close()

@@ -12,7 +12,6 @@ function ShowOverlayOn(title) {
   var script = document.createElement("script");
   script.src = scriptPath;
   document.head.appendChild(script);
-  loadEpList();
   document.getElementById("showEpSelector").style.display = "block";
   document.getElementById("videoPlayer").style.display="none";
   document.getElementById("movieOverlay").style.display = "block";
