@@ -233,3 +233,45 @@ html ul {
     height: 173.3px;
   }
 }
+
+
+#movieOverlay{
+  position: fixed;
+  display: none;
+  width: 75%;
+  height: 75%;
+  top: 12.5%;
+  left: 12.5%;
+  margin: auto;
+  background-color: black;
+  border-radius: 15px;
+  z-index: 2;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 15px 28px 0 rgba(0, 0, 0, 4);
+}
+.movieOverlayClose img{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 5%;
+}
+.movieOverlayTitle{
+  position: absolute;
+  width: 100%;
+  top: 1%;
+  text-align: center;
+}
+.movieOverlayDescription{
+  position: absolute;
+  width: 85%;
+  height: 25%;
+  bottom: 5%;
+  left: 7.5%;
+  text-align: justify;
+  overflow-y: scroll;
+}
+.movieOverlayDescription::-webkit-scrollbar{
+  width:0 !important;
+  background: transparent;
+}

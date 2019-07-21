@@ -6,10 +6,21 @@
 
     <title>Streaming - Movies</title>
     <link rel="stylesheet" href="ressources/style.css">
+    <script type="text/javascript" src="scripts.js"></script>
   </head>
 
 
   <body>
+
+    <div id="movieOverlay">
+      <div class="movieOverlayTitle">
+        <h1>Shutter Island</h1>
+      </div>
+      <div class="movieOverlayClose"  onclick="MovieOverlayOff()">
+        <img src="ressources/Icons/close.png">
+      </div>
+    </div>
+
     <div id="header">
       <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
       <div class="leftMenu">
@@ -34,13 +45,11 @@
     </div>
 
     <div id="content" style="margin-top:30px;">
-      <div class="movieItem">
-        <a href="videos/movies/shutterisland/shutterisland.html">
-          <div class="movie_img_wrap">
-            <img src="videos/movies/shutterisland/thumb.jpg" width="100%">
-            <p class="movie_image_description">Shutter Island</p>
-          </div>
-        </a>
+      <div class="movieItem" onclick="MovieOverlayOn()">
+        <div class="movie_img_wrap">
+          <img src="videos/movies/Shutter Island/thumb.jpg" width="100%">
+          <p class="movie_image_description">Shutter Island</p>
+        </div>
       </div>
     </div>
   </body>
