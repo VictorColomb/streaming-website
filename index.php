@@ -42,9 +42,7 @@
           <!-- List of seasons and episodes, buttons linked to js function that should bring up the desired ep -->
         </div>
         <div id="videoPlayerDiv">
-          <video id="videoPlayer" data-dashjs-player autoplay src="" controls>
-            Your browser does not support the VIDEO tag and/or RTP streams.
-          </video>
+          <video id="videoPlayer" controls></video>
         </div>
       </div>
       <div class="movieOverlayClose"  onclick="OverlayOff()">
@@ -53,7 +51,7 @@
       <!-- Download button-->
       <div id="movieOverlayDownload">
         <a id="movieOverlayDownloadButton" href="" download="">
-          <img src="ressources/Icons/download.png" style="width:75%;">
+          <img src="ressources/Icons/download.png" style="width:75%; display:none;">
         </a>
         <p class="movieOverlayDownloadSize"></p>
       </div>

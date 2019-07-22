@@ -1,7 +1,8 @@
 function showOpenEp(season,episode) {
+document.getElementById("videoPlayer").style.display="block"; 
 var vidPath = "videos/shows/Friends/S"+season+"/E"+episode+"/vid/manifest.mpd";
-document.getElementById("videoPlayer").src = vidPath;
-document.getElementById("videoPlayer").style.display="block"; }
+var player = dashjs.MediaPlayer().create();
+player.initialize(document.querySelector("#videoPlayer"), vidPath, true); }
 
-epList = '<p class="season">Season 3</p><button class="loadButton" onclick="showOpenEp(3,1)">1</button>'
+epList = '<p class="season">Season 3</p><button class="loadButton" onclick="showOpenEp(3,1)">1</button><p class="season">Season 10</p><button class="loadButton" onclick="showOpenEp(10,1)">1</button><button class="loadButton" onclick="showOpenEp(10,2)">2</button><button class="loadButton" onclick="showOpenEp(10,3)">3</button><button class="loadButton" onclick="showOpenEp(10,4)">4</button><button class="loadButton" onclick="showOpenEp(10,5)">5</button><button class="loadButton" onclick="showOpenEp(10,6)">6</button><button class="loadButton" onclick="showOpenEp(10,7)">7</button><button class="loadButton" onclick="showOpenEp(10,8)">8</button><button class="loadButton" onclick="showOpenEp(10,9)">9</button><button class="loadButton" onclick="showOpenEp(10,10)">10</button><button class="loadButton" onclick="showOpenEp(10,11)">11</button><button class="loadButton" onclick="showOpenEp(10,12)">12</button><button class="loadButton" onclick="showOpenEp(10,13)">13</button><button class="loadButton" onclick="showOpenEp(10,14)">14</button><button class="loadButton" onclick="showOpenEp(10,15)">15</button><button class="loadButton" onclick="showOpenEp(10,16)">16</button><button class="loadButton" onclick="showOpenEp(10,17)">17</button>'
 document.getElementById("showEpSelector").innerHTML = epList;
