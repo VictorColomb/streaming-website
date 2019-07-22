@@ -6,6 +6,7 @@
 
     <title>Streaming - Movies</title>
     <link rel="stylesheet" href="ressources/style.css">
+    <link rel="icon" href="ressources/favicon.jpg">
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
   </head>
@@ -33,14 +34,14 @@
     </div>
 
     <div id="header">
-      <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
+      <div class="logo"><a href="../"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
       <div class="leftMenu">
         <ul>
           <li style="background-color: #333;">
-            <a href="movies.html">Movies</a>
+            <a href="movies.php">Movies</a>
           </li>
           <li>
-            <a href="tvshows.html">TV Shows</a>
+            <a href="tvshows.php">TV Shows</a>
           </li>
         </ul>
       </div>
@@ -56,12 +57,12 @@
     </div>
 
     <div id="content" style="margin-top:30px;">
-      <div class="movieItem" onclick="MovieOverlayOn('Shutter Island')">
-        <div class="movie_img_wrap">
-          <img src="videos/movies/Shutter Island/thumb.jpg" width="100%">
-          <p class="movie_image_description">Shutter Island</p>
-        </div>
-      </div>
+<?php
+          $fn = fopen("js/movies.txt","r");
+          $result = fgets($fn);
+          echo $result;
+          fclose($fn);
+?>
     </div>
   </body>
 </html>

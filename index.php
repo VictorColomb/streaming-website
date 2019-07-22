@@ -33,7 +33,6 @@
 
 
   <body>
-
     <div id="movieOverlay">
       <div class="movieOverlayFrame">
         <div id="overlayTitleDiv">
@@ -54,14 +53,14 @@
     </div>
 
     <div id="header">
-      <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a></div>
+      <div class="logo"><img src=ressources/netflix.jpg height=33.2px width=20px></div>
         <div class="leftMenu">
           <ul>
             <li>
-              <a href="movies.html">Movies</a>
+              <a href="movies.php">Movies</a>
             </li>
             <li>
-              <a href="tvshows.html">TV Shows</a>
+              <a href="tvshows.php">TV Shows</a>
             </li>
         </ul>
       </div>
@@ -78,23 +77,23 @@
 
     <div id="content" style="margin: 0;">
       <div class="contentMovies" style="margin-left:4%; margin-right:2%; width: 41.5%;">
-        <a href="movies.html"><h3>Movies</h3></a>
-        <div class="movieItem" onclick="MovieOverlayOn('Shutter Island')">
-          <div class="movie_img_wrap">
-            <img src="videos/movies/Shutter Island/thumb.jpg" width="100%">
-            <p class="movie_image_description">Shutter Island</p>
-          </div>
-        </div>
+        <a href="movies.php"><h3>Movies</h3></a>
+<?php
+          $fn = fopen("js/movies.txt","r");
+          $result = fgets($fn);
+          echo $result;
+          fclose($fn);
+?>
       </div>
 
       <div class="contentTVShow" style="margin-right:4%; margin-left:2%; width: 41.5%;">
-        <a href="tvshows.html"><h3>TV Shows</h3></a>
-        <div class="showItem" onclick="ShowOverlayOn('Friends')">
-          <div class="tv_img_wrap">
-            <img src="videos/shows/Friends/thumb.jpg">
-            <p class="tv_image_description">Friends</p>
-          </div>
-        </div>
+        <a href="tvshows.php"><h3>TV Shows</h3></a>
+<?php
+        $fn = fopen("js/shows.txt","r");
+        $result = fgets($fn);
+        echo $result;
+        fclose($fn);
+?>
       </div>
     </div>
 

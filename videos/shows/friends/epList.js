@@ -1,5 +1,5 @@
 function showOpenEp(season,episode) {
-var vidPath = "videos/shows/Friends/S"+season+"/E"+episode+"/vid.mpd";
+var vidPath = "videos/shows/Friends/S"+season+"/E"+episode+"/vid/manifest.mpd";
 document.getElementById("videoPlayer").src = vidPath;
 document.getElementById("videoPlayer").style.display="block"; }
 

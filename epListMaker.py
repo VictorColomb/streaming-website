@@ -7,7 +7,6 @@ if len(sys.argv)<=1:
 else:
     basePath = sys.argv[1]
 os.chdir('videos/shows/'+basePath)
-os.chdir('C:/Users/vicco/Documents/Streaming website/videos/shows/Friends')
 currentPath=p.Path.cwd()
 pathList=[x for x in currentPath.iterdir() if x.is_dir()]
 pp=[str(x) for x in pathList]
@@ -29,7 +28,7 @@ while k<len(pp):
         del pp[k]
         del pathList[k]
 output=open('epList.js','w')
-print('function showOpenEp(season,episode) {','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E"+episode+\"/vid.mpd\";','document.getElementById(\"videoPlayer\").src = vidPath;','document.getElementById(\"videoPlayer\").style.display=\"block\"; }','','epList = \'', sep='\n',end='',file=output)
+print('function showOpenEp(season,episode) {','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E\"+episode+\"/vid/manifest.mpd\";','document.getElementById(\"videoPlayer\").src = vidPath;','document.getElementById(\"videoPlayer\").style.display=\"block\"; }','','epList = \'', sep='\n',end='',file=output)
 if pp==[]:
     print('<p>No episodes</p>\"','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',file=output)
     sys.exit(0)

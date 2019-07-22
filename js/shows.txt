@@ -1,0 +1,1 @@
+<div class="showItem" onclick="ShowOverlayOn('Friends')"><div class="tv_img_wrap"><img src="videos/shows/Friends/thumb.jpg"><p class="tv_image_description">Friends</p></div></div>

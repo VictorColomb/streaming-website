@@ -6,6 +6,7 @@
 
     <title>Streaming - TV Shows</title>
     <link rel="stylesheet" href="ressources/style.css">
+    <link rel="icon" href="ressources/favicon.jpg">
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
   </head>
@@ -32,14 +33,14 @@
     </div>
 
     <div id="header">
-      <div class="logo"><a href="index.html"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
+      <div class="logo"><a href="../"><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
       <div class="leftMenu">
         <ul>
           <li>
-            <a href="movies.html">Movies</a>
+            <a href="movies.php">Movies</a>
           </li>
           <li style="background-color: #333;">
-            <a href="tvshows.html">TV Shows</a>
+            <a href="tvshows.php">TV Shows</a>
           </li>
         </ul>
       </div>
@@ -55,12 +56,12 @@
     </div>
 
     <div id="content" style="margin-top: 30px;">
-      <div class="showItem">
-        <div class="tv_img_wrap" onclick="ShowOverlayOn('Friends')">
-          <img src="videos/shows/Friends/thumb.jpg">
-          <p class="tv_image_description">Friends</p>
-        </div>
-      </div>
+<?php
+        $fn = fopen("js/shows.txt","r");
+        $result = fgets($fn);
+        echo $result;
+        fclose($fn);
+?>
     </div>
   </body>
 </html>
