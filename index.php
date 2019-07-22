@@ -50,6 +50,13 @@
       <div class="movieOverlayClose"  onclick="OverlayOff()">
         <img src="ressources/Icons/close.png">
       </div>
+      <!-- Download button-->
+      <div id="movieOverlayDownload">
+        <a id="movieOverlayDownloadButton" href="" download="">
+          <img src="ressources/Icons/download.png" style="width:75%;">
+        </a>
+        <p class="movieOverlayDownloadSize"></p>
+      </div>
     </div>
 
     <div id="header">
