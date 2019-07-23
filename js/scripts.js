@@ -25,3 +25,8 @@ function OverlayOff() {
   document.getElementById("movieOverlay").style.display = "none";
   document.getElementById("videoPlayer").pause()
 }
+function OverlayOffKey(e) {
+  if (e ==27) {
+    OverlayOff()
+  }
+}

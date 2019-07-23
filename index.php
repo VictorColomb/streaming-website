@@ -33,10 +33,8 @@
   </head>
 
 
-  <body>
+  <body onload="cookiesInit()" onkeydown="OverlayOffKey(event.keyCode)">
     <!-- Finds the watched and unwatched videos of a user through cookies-->
-    <body onload="cookiesInit()">
-
     <div id="movieOverlay">
       <div class="movieOverlayFrame">
         <div id="overlayTitleDiv">
