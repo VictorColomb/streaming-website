@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="ressources/style.css">
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script type="text/javascript" src="js/cookies.js"></script>
     <style media="screen">
       .descriptionBox{
         margin: 0 0 50px 0;
@@ -33,6 +34,9 @@
 
 
   <body>
+    <!-- Finds the watched and unwatched videos of a user through cookies-->
+    <body onload="cookiesInit()">
+
     <div id="movieOverlay">
       <div class="movieOverlayFrame">
         <div id="overlayTitleDiv">
