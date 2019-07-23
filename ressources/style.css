@@ -258,6 +258,7 @@ html ul {
   z-index: 2;
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 15px 28px 0 rgba(0, 0, 0, 4);
+  overflow: auto;
 }
 
 .movieOverlayClose img{

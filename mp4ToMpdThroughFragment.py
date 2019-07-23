@@ -26,7 +26,7 @@ PPPP=[x+'-frag.mp4' for x in PPP]
 i=0
 while i<len(PP):
     if PPp[i]=='mkv':
-        subprocess.call(['ffmpeg','-i',PP[i],'-codec','copy',PPP[i]+'.mp4'])
+        subprocess.call(['ffmpeg','-loglevel','quiet','-i',PP[i],'-codec','copy',PPP[i]+'.mp4'])
         os.system('del '+PP[i])
         PP[i]=PPP[i]+'.mp4'
     if PPp[i] in ['mkv','mp4']:
@@ -42,11 +42,9 @@ while i<len(PP):
 
 # Partition each file-frag.mp4 using mp4dash
 for i in range(len(PP)):
-    subprocess.call(['mp4dash',-o',vid'+PPP[i],'--mpd-name=manifest.mpd','--use-segment-timeline','--force',PPPP[i]])
+    os.system('mp4dash -o vid'+PPP[i]+' --mpd-name=manifest.mpd --use-segment-timeline --force '+PPPP[i])
     os.system('del '+PPPP[i])
-
-for e in PPP:
-    shutil.move('vid'+e,e)
-    os.chdir(e)
-    os.system('ren vid'+e+' vid')
+    shutil.move('vid'+PPP[i],PPP[i])
+    os.chdir(PPP[i])
+    os.system('ren vid'+PPP[i]+' vid')
     os.chdir('..')

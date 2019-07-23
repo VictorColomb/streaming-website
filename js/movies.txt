@@ -1,1 +1,1 @@
-<div class="movieItem" id="Shutter_Island" onclick="MovieOverlayOn('Shutter Island');iwatched('Shutter_Island')"><div class="movie_img_wrap"><img src="videos/movies/Shutter Island/thumb.jpg" width="100%"><p class="movie_image_description">Shutter Island</p></div></div>
+<div class="movieItem" onclick="MovieOverlayOn('Shutter Island');iwatched('Shutter_Island')"><div class="movie_img_wrap"><img src="videos/movies/Shutter Island/thumb.jpg" width="100%"><p class="movie_image_description">Shutter Island</p></div></div>
