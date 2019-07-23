@@ -1,5 +1,5 @@
-function showOpenEp(season,episode) {
-document.getElementById("videoPlayer").style.display="block"; 
+function showOpenEp(season,episode) {//fucking indente ta merde stp
+document.getElementById("videoPlayer").style.display="block";
 var vidPath = "videos/shows/Friends/S"+season+"/E"+episode+"/vid/manifest.mpd";
 var player = dashjs.MediaPlayer().create();
 player.initialize(document.querySelector("#videoPlayer"), vidPath, true); }

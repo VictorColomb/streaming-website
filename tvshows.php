@@ -9,6 +9,7 @@
     <link rel="icon" href="ressources/favicon.jpg">
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script type="text/javascript" src="js/cookies.js"></script>
   </head>
 
 
