@@ -21,7 +21,7 @@ for i in range(len(pp)):
         k+=1
     pp=pp[:k]+[pp[i]]+pp[k:i]+pp[i+1:]
 for e in pp:
-    print('<div class=\"movieItem\" onclick=\"MovieOverlayOn(\'',e,'\')\"><div class=\"movie_img_wrap\"><img src=\"videos/movies/',e,'/thumb.jpg\" width=\"100%\"><p class=\"movie_image_description\">',e,'</p></div></div>',sep='',end='',file=moviesOutputTxt)
+    print('<div class=\"movieItem\" onclick=\"MovieOverlayOn(\'',e,'\');iwatched(\'',e.replace(' ','_'),'\')\"><div class=\"movie_img_wrap\"><img src=\"videos/movies/',e,'/thumb.jpg\" width=\"100%\"><p class=\"movie_image_description\">',e,'</p></div></div>',sep='',end='',file=moviesOutputTxt)
 os.chdir('..')
 
 # TV SHOWS
@@ -40,6 +40,6 @@ for i in range(len(pp)):
         k+=1
     pp=pp[:k]+[pp[i]]+pp[k:i]+pp[i+1:]
 for e in pp:
-    print('<div class=\"showItem\" onclick=\"ShowOverlayOn(\'',e,'\')\"><div class=\"tv_img_wrap\"><img src=\"videos/shows/',e,'/thumb.jpg\"><p class=\"tv_image_description\">',e,'</p></div></div>',sep='',end='',file=showsOutputTxt)
+    print('<div class=\"showItem\" onclick=\"ShowOverlayOn(\'',e,'\');iwatched(\'',e.replace(' ','_'),'\')\"><div class=\"tv_img_wrap\"><img src=\"videos/shows/',e,'/thumb.jpg\"><p class=\"tv_image_description\">',e,'</p></div></div>',sep='',end='',file=showsOutputTxt)
 moviesOutputTxt.close()
 showsOuptutTxt.close()
