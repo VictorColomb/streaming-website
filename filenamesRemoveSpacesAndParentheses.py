@@ -3,8 +3,6 @@ import pathlib as p
 import copy
 import subprocess
 
-os.chdir('C:/Users/vicco/Documents/Streaming website/videos/shows/Friends/S10')
-
 cur=p.Path.cwd()
 pp=[x for x in cur.iterdir()]
 ppp=[x for x in pp if not(x.is_dir())]
