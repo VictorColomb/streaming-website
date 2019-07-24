@@ -73,7 +73,7 @@ function iwatched(title){
 }
 
 function loginBtnCLicked() {
-  var val = document.getElementsByClassName('loginbar').search_box.value;
+  var val = document.getElementById('loginbar').value;
   if (val != null) {
     signIn(val);
   }
@@ -87,7 +87,8 @@ function visualChange(el) {
 function signIn(name){
   //alert("Welcome " + name);
   username = name;
-  document.getElementsByClassName("loginbar").search_box.value = name;
+  document.getElementById("loginbar").value = name;
+  document.getElementById("loginBtnOverlayText").innerHTML = "Welcome " + name;
   setCookie("username", username)
   console.log("Username: " + username);
 
