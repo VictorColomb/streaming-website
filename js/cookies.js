@@ -61,6 +61,7 @@ function iwatched(title){
   console.log(title + ' was watched');
   if (watched.indexOf(title) == -1) {
     //modifies watched
+    visualChange(title);
     watched.push(title);
     added_watched.push(title);
     console.log('it was added to added_watched');
