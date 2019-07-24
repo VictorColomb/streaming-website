@@ -76,7 +76,8 @@ for i in range(len(ppp)):
             PP=PP[:k]+[PP[j]]+PP[k:j]+PP[j+1:]
             pList=pList[:k]+[pList[j]]+pList[k:j]+pList[j+1:]
         for j in range(len(PPP)):
-            print('<button class=\"loadButton\" onclick=\"showOpenEp(',ppp[i],',',PPP[j],')\">',PPP[j],'</button>', sep='',end='',file=output)
+            #METTRE ID DE L'EPISODE
+            print('<button class=\"loadButton\" id=\"',ID DE LEPISODE,'\" onclick=\"showOpenEp(',ppp[i],',',PPP[j],');iwatched(\"',ID DE LEPISODE,'\")\">',PPP[j],'</button>', sep='',end='',file=output)
     os.chdir('..')
 print('\'','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',end='',file=output)
 output.close()

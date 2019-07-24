@@ -77,6 +77,36 @@ html ul {
   outline-color: #444;
 }
 
+.loginBtn{
+  float: right;
+  display: inline-block;
+  color: white;
+  cursor:pointer;
+  text-align: center;
+}
+
+.loginbarContainer{
+  float: right;
+  display: inline-block;
+  color: white;
+  padding-right: 5px;
+  padding-top: 15px;
+  margin-left: 30px;
+}
+
+.loginbar {
+  color: white;
+  padding: 5px;
+  /*box-sizing: border-box;*/
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #444;
+  background-color: #111;
+}
+.loginbar:focus {
+  outline-color: #444;
+}
+
 
 @media screen and (max-width: 550px) {
   .logo, .leftMenu, .search {
@@ -354,8 +384,16 @@ html ul {
   padding: 0;
   height: 18px;
   width: 25px;
+  transition: transform 0.2s;
 }
+
+.loadButton:hover{
+  transform: scale(2);
+  border: 1px solid #777;
+}
+
 .loadButton:focus {
   outline: none;
+  transform: scale(2);
   background-color: #777;
 }

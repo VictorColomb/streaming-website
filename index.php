@@ -71,15 +71,27 @@
             </li>
         </ul>
       </div>
-        <!-- ACTIVATE SEARCH BAR -->
-        <div class="search">
-          <div class="searchIcon">
-            <img src="ressources/Icons/search.png">
-          </div>
-          <div class="searchbar">
-            <input type="text" value="" name="search_box" placeholder="Search...">
-          </div>
+
+      <!-- Login -->
+      <div class="login">
+        <div class="loginbarContainer">
+          <input class="loginbar" type="text" value="" name="search_box" placeholder="Not logged in...">
         </div>
+        <div class="loginBtn">
+          <p onclick="loginBtnCLicked()" >log-in</p>
+        </div>
+      </div>
+
+        <!-- ACTIVATE SEARCH BAR -->
+      <div class="search">
+        <div class="searchbar">
+          <input type="text" value="" name="search_box" placeholder="Search...">
+        </div>
+        <div class="searchIcon">
+          <img src="ressources/Icons/search.png">
+        </div>
+      </div>
+
     </div>
 
     <div id="content" style="margin: 0;">
