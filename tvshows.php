@@ -10,6 +10,40 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <script type="text/javascript" src="js/cookies.js"></script>
+    <style media="screen">
+    .showItem {
+      position: relative;
+      float:left;
+      margin: 0 0.8333% 20px;
+      box-sizing: border-box;
+      cursor: pointer;
+      width: 15%;
+    }
+    @media screen and (max-width: 1000px) {
+      .showItem {
+        width: 18%;
+        margin: 0 1% 20px;
+      }
+    }
+    @media screen and (max-width: 850px) {
+      .showItem {
+        width: 22.5%;
+        margin: 0 1.25% 20px;
+      }
+    }
+    @media screen and (max-width: 650px) {
+      .showItem {
+        width: 30%;
+        margin: 0 1.666% 20px;
+      }
+    }
+    @media screen and (max-width: 400px) {
+      .showItem {
+        width: 45%;
+        margin: 0 2.5% 20px;
+      }
+    }
+    </style>
   </head>
 
 
@@ -56,7 +90,7 @@
       </div>
     </div>
 
-    <div id="content" style="margin-top: 30px;">
+    <div id="content" style="margin:30px 2% 10px;">
 <?php
         $fn = fopen("js/shows.txt","r");
         $result = fgets($fn);
