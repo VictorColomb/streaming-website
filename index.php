@@ -17,16 +17,102 @@
       .descriptionBox{
         margin: 0 0 50px 0;
       }
-      @media screen and (max-width: 738px) {
+      .showItem {
+        position: relative;
+        float:left;
+        margin: 0 1.666% 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 30%;
+      }
+      .movieItem {
+        position: relative;
+        float:left;
+        margin: 0 1.666% 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 30%;
+      }
+      @media screen and (max-width: 1100px) {
+        .movieItem img {
+          height: 180px;
+        }
         .showItem img {
-          width: 110px;
-          height: 146.6px;
+          height: 180px;
         }
       }
-      @media screen and (max-width: 738px) {
+      @media screen and (max-width: 1000px) {
         .movieItem img {
-          width: 110px;
-          height: 146.6px;
+         height: 160px;
+        }
+        .showItem img {
+         height: 160px;
+        }
+      }
+      @media screen and (max-width: 900px) {
+        .movieItem {
+          width: 46.668%;
+        }
+        .movieItem img {
+          height: 200px;
+        }
+        .showItem {
+          width: 46.668%;
+        }
+        .showItem img {
+          height: 200px;
+        }
+      }
+      @media screen and (max-width: 700px) {
+        .movieItem img {
+         height: 180px;
+        }
+        .showItem img {
+         height: 180px;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .movieItem img {
+         height: 160px;
+        }
+        .showItem img {
+         height: 160px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .movieItem img {
+         height: 140px;
+        }
+        .showItem img {
+         height: 140px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .movieItem {
+          width: 96.668%;
+        }
+        .movieItem img {
+          height: 200px;
+        }
+        .contentMovies {
+          margin-left: 1.5%;
+        }
+        .showItem {
+          width: 96.668%;
+        }
+        .showItem img {
+          height: 200px;
+        }
+        .contentTVShow {
+          margin-right: 1.5%
+        }
+      }
+      @media screen and (max-width: 200px) {
+        .movieItem img {
+         height: 180px;
+        }
+        .showItem img {
+         height: 180px;
         }
       }
     </style>
@@ -82,9 +168,11 @@
         </div>
     </div>
 
-    <div id="content" style="margin: 0;">
-      <div class="contentMovies" style="margin-left:4%; margin-right:2%; width: 41.5%;">
-        <a href="movies.php"><h3>Movies</h3></a>
+    <div id="content">
+      <div class="contentMovies">
+        <div class="contentTitle">
+          <a href="movies.php"><h3>Movies</h3></a>
+        </div>
 <?php
           $fn = fopen("js/movies.txt","r");
           $result = fgets($fn);
@@ -93,8 +181,10 @@
 ?>
       </div>
 
-      <div class="contentTVShow" style="margin-right:4%; margin-left:2%; width: 41.5%;">
-        <a href="tvshows.php"><h3>TV Shows</h3></a>
+      <div class="contentTVShow">
+        <div class="contentTitle">
+          <a href="tvshows.php"><h3>TV Shows</h3></a>
+        </div>
 <?php
         $fn = fopen("js/shows.txt","r");
         $result = fgets($fn);
