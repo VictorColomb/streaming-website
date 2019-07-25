@@ -23,7 +23,7 @@
         margin: 0 1.666% 20px;
         box-sizing: border-box;
         cursor: pointer;
-        width: 30%;
+        width: 19.168%;
       }
       .movieItem {
         position: relative;
@@ -31,7 +31,37 @@
         margin: 0 1.666% 20px;
         box-sizing: border-box;
         cursor: pointer;
-        width: 30%;
+        width: 19.168%;
+      }
+      @media screen and (max-width: 1650px) {
+        .movieItem img {
+          height: 180px;
+        }
+        .showItem img {
+          height: 180px;
+        }
+      }
+      @media screen and (max-width: 1450px) {
+        .movieItem img {
+          height: 160px;
+        }
+        .showItem img {
+          height: 160px;
+        }
+      }
+      @media screen and (max-width: 1300px) {
+        .movieItem {
+          width: 30%;
+        }
+        .movieItem img {
+          height: 200px;
+        }
+        .showItem {
+          width: 30%;
+        }
+        .showItem img {
+          height: 200px;
+        }
       }
       @media screen and (max-width: 1100px) {
         .movieItem img {
