@@ -75,6 +75,7 @@ for i in range(len(PP)):
     shutil.move('vid'+PPP[i],PPP[i])
     os.chdir(PPP[i])
     os.system('ren vid'+PPP[i]+' vid')
+    os.system('ren '+PP[i]+' vid.mp4')
     os.chdir('..')
 print(PPP[length-1],'   |','='*20,'|  100%',sep='')
 shit = input('Press <Enter> to continue...')

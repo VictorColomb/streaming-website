@@ -28,7 +28,7 @@ while k<len(pp):
         del pp[k]
         del pathList[k]
 output=open('epList.js','w')
-print('function showOpenEp(season,episode) {','document.getElementById(\"videoPlayer\").style.display=\"block\"; ','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E\"+episode+\"/vid/manifest.mpd\";','var player = dashjs.MediaPlayer().create();','player.initialize(document.querySelector(\"#videoPlayer\"), vidPath, true); }','','epList = \'', sep='\n',end='',file=output)
+print('function showOpenEp(season,episode) {','document.getElementById(\"videoPlayer\").style.display=\"block\"; ','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E\"+episode+\"/vid/manifest.mpd\";','var player = dashjs.MediaPlayer().create();','player.initialize(document.querySelector(\"#videoPlayer\"), vidPath, true); }','','epList = \'\'.concat(\'', sep='\n',end='',file=output)
 if pp==[]:
     print('<p>No episodes</p>\"','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',file=output)
     sys.exit(0)
@@ -76,8 +76,10 @@ for i in range(len(ppp)):
             PP=PP[:k]+[PP[j]]+PP[k:j]+PP[j+1:]
             pList=pList[:k]+[pList[j]]+pList[k:j]+pList[j+1:]
         for j in range(len(PPP)):
-            #METTRE ID DE L'EPISODE
-            print('<button class=\"loadButton\" id=\"',ID DE LEPISODE,'\" onclick=\"showOpenEp(',ppp[i],',',PPP[j],');iwatched(\"',ID DE LEPISODE,'\")\">',PPP[j],'</button>', sep='',end='',file=output)
+            epJsId = basePath.replace(' ','_')+'_s'+str(ppp[i])+'e'+str(PPP[j])
+            print('<button class=\"loadButton\" id=\"',epJsId,'\" onclick=\"showOpenEp(',ppp[i],',',PPP[j],');iwatched(\',\"\'\",\'',epJsId,'\',\"\'\",\')\">',PPP[j],'</button>', sep='',end='',file=output)
     os.chdir('..')
-print('\'','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',end='',file=output)
+print('\');','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',end='',file=output)
 output.close()
+if len(sys.argv)<=1:
+    shit = input('Press <Enter> to continue...')

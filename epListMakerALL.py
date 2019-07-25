@@ -16,3 +16,4 @@ os.chdir('..')
 os.chdir('..')
 for e in pp:
     subprocess.Popen([sys.executable,'epListMaker.py',e])
+shit = input('Press <Enter> to continue...')
