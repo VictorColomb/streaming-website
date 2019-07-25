@@ -157,15 +157,39 @@
             </li>
         </ul>
       </div>
+
+      <div id="loginBtnOverlay" onclick="LoginOverlayOn()">
+        <p id="loginBtnOverlayText">Not Signed In</p>
+      </div>
+
         <!-- ACTIVATE SEARCH BAR -->
-        <div class="search">
-          <div class="searchIcon">
-            <img src="ressources/Icons/search.png">
-          </div>
-          <div class="searchbar">
-            <input type="text" value="" name="search_box" placeholder="Search...">
-          </div>
+      <div class="search">
+        <div class="searchbar">
+          <input type="text" value="" name="search_box" placeholder="Search...">
         </div>
+        <div class="searchIcon">
+          <img src="ressources/Icons/search.png">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Login -->
+    <div id="login">
+      <p>Enter Username:</p>
+      <div class="loginbarContainer">
+        <input id="loginbar" type="text" value="" placeholder="Not logged in..." autofocus>
+      </div>
+      <small id="loginBtn" onclick="loginBtnCLicked();LoginOverlayOff()">Submit</small>
+      <script>
+        var input = document.getElementById("loginbar");
+        input.addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("loginBtn").click();
+          }
+        });
+      </script>
     </div>
 
     <div id="content">

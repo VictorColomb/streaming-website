@@ -28,5 +28,15 @@ function OverlayOff() {
 function OverlayOffKey(e) {
   if (e ==27) {
     OverlayOff()
+    LoginOverlayOff()
   }
+}
+
+function LoginOverlayOn() {
+  document.getElementById("login").style.display = "block";
+  document.getElementById("loginBtnOverlay").style.background = "#333";
+}
+function LoginOverlayOff() {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("loginBtnOverlay").style.background = "black";
 }
