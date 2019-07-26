@@ -66,7 +66,7 @@ function iwatched(title){
     added_watched.push(title);
     console.log('it was added to added_watched');
     //if the user is logged in, saves his current activity
-    if (username != null) {
+    if (username != null && username != "") {
       setWatched()
     }
   }
@@ -100,7 +100,7 @@ function signIn(name){
     {
       var responseString = this.responseText;
       var serverResponse = responseString.split(';');
-
+      console.log(responseString);
         //loads the list of videos the user has already seen
         if (serverResponse != null) {
           for (var el of serverResponse) { if (!(el in watched) && el != '') {watched.push(el); console.log('Already watched: ' +  el);visualChange(el)} }
