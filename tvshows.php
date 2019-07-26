@@ -83,6 +83,12 @@
       <div class="movieOverlayClose"  onclick="OverlayOff()">
         <img src="ressources/Icons/close.png">
       </div>
+      <div id="movieOverlayDownload">
+        <a id="movieOverlayDownloadButton" href="" download="vid.mp4">
+          <img src="ressources/Icons/download.png">
+        </a>
+        <p class="movieOverlayDownloadSize"></p>
+      </div>
     </div>
 
     <div id="header">

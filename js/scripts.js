@@ -7,6 +7,9 @@ function MovieOverlayOn(title) {
   document.getElementById("showEpSelector").style.display = "none";
   document.getElementById("videoPlayerDiv").style.margin="40px 0 10px";
   document.getElementById("movieOverlay").style.display = "block";
+  document.getElementById("movieOverlayDownloadButton").href = dwdpath;
+  document.getElementById("movieOverlayDownloadButton").download = title+'.mp4';
+  document.getElementById("movieOverlayDownload").style.display = "block";
   //document.getElementById("movieOverlayDownloadButton").href=dwdpath;
   //document.getElementById("movieOverlayDownloadButton").download=title;
 }
@@ -19,6 +22,7 @@ function ShowOverlayOn(title) {
   document.getElementById("showEpSelector").style.display = "block";
   document.getElementById("videoPlayer").style.display="none";
   document.getElementById("videoPlayerDiv").style.margin="0 0 10px";
+  document.getElementById("movieOverlayDownload").style.display = "none";
   document.getElementById("movieOverlay").style.display = "block";
 }
 function OverlayOff() {

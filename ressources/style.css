@@ -357,9 +357,12 @@ body::-webkit-scrollbar-thumb
 
 #movieOverlayDownload {
   position: absolute;
-  bottom: 5%;
-  left: 10%;
+  top: 30px;
+  right: 5%;
   cursor: pointer;
+}
+#movieOverlayDownload img {
+  width:40px;
 }
 
 

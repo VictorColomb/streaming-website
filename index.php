@@ -168,8 +168,8 @@
       </div>
       <!-- Download button-->
       <div id="movieOverlayDownload">
-        <a id="movieOverlayDownloadButton" href="" download="">
-          <img src="ressources/Icons/download.png" style="width:75%; display:none;">
+        <a id="movieOverlayDownloadButton" href="" download="vid.mp4">
+          <img src="ressources/Icons/download.png">
         </a>
         <p class="movieOverlayDownloadSize"></p>
       </div>

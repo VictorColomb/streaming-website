@@ -28,7 +28,7 @@ while k<len(pp):
         del pp[k]
         del pathList[k]
 output=open('epList.js','w')
-print('function showOpenEp(season,episode) {','document.getElementById(\"videoPlayer\").style.display=\"block\"; ','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E\"+episode+\"/vid/manifest.mpd\";','var player = dashjs.MediaPlayer().create();','player.initialize(document.querySelector(\"#videoPlayer\"), vidPath, true); }','','epList = \'\'.concat(\'', sep='\n',end='',file=output)
+print('function showOpenEp(season,episode) {','document.getElementById(\"videoPlayer\").style.display=\"block\"; ','var vidPath = \"videos/shows/'+basePath+'/S\"+season+\"/E\"+episode+\"/vid/manifest.mpd\";','var dwdpath = \"videos/shows/'+basePath+'/S\"+season+\"/E\"+episode+\"/vid.mp4\";','var player = dashjs.MediaPlayer().create();','player.initialize(document.querySelector(\"#videoPlayer\"), vidPath, true)','document.getElementById(\"movieOverlay\").style.display = \"block\";','document.getElementById(\"movieOverlayDownloadButton\").download = \"'+basePath+' S\"+season+\"E\"+episode+\".mp4\";','document.getElementById(\"movieOverlayDownloadButton\").href = dwdpath;','document.getElementById(\"movieOverlayDownload\").style.display = \"block\"; }','','epList = \'\'.concat(\'', sep='\n',end='',file=output)
 if pp==[]:
     print('<p>No episodes</p>\"','document.getElementById("showEpSelector").innerHTML = epList;',sep='\n',file=output)
     sys.exit(0)
