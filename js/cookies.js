@@ -53,7 +53,7 @@ function cookiesInit() {
   //tries signing you in using cookies
   username = getCookieValue("username");
 
-  if (username != null) {signIn(username)}
+  if (username != null && username != "") {signIn(username)}
 }
 
 //changes the color of text of already watched stuff
