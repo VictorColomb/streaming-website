@@ -2,23 +2,25 @@ var movieOverlayisOn = false;
 var loginOverlayisOn = false;
 
 function MovieOverlayOn(title) {
-  document.getElementById("overlayTitle").innerHTML = title;
-  var vidPath = 'videos/movies/'+title+'/vid/manifest.mpd';
-  var dwdpath = 'videos/movies/'+title+'/vid.mp4';
-  var player = dashjs.MediaPlayer().create();  document.getElementById("videoPlayer").style.display="block";
+  var goodTitle = title.replace(/,/g,"'");
+  document.getElementById("overlayTitle").innerHTML = goodTitle;
+  var vidPath = 'videos/movies/'+goodTitle+'/vid/manifest.mpd';
+  var dwdpath = 'videos/movies/'+goodTitle+'/vid.mp4';
+  var player = dashjs.MediaPlayer({}).create();  document.getElementById("videoPlayer").style.display="block";
   player.initialize(document.querySelector("#videoPlayer"), vidPath, true);
   document.getElementById("showEpSelector").style.display = "none";
   document.getElementById("videoPlayerDiv").style.margin="40px 0 10px";
   document.getElementById("movieOverlay").style.display = "block";
   document.getElementById("movieOverlayDownloadButton").href = dwdpath;
-  document.getElementById("movieOverlayDownloadButton").download = title+'.mp4';
+  document.getElementById("movieOverlayDownloadButton").download = goodTitle+'.mp4';
   document.getElementById("movieOverlayDownload").style.display = "block";
   //document.getElementById("movieOverlayDownloadButton").href=dwdpath;
   //document.getElementById("movieOverlayDownloadButton").download=title;
 }
 function ShowOverlayOn(title) {
-  document.getElementById("overlayTitle").innerHTML = title;
-  scriptPath = "videos/shows/"+title+"/epList.js";
+  var goodTitle = title.replace(/,/g,"'");
+  document.getElementById("overlayTitle").innerHTML = goodTitle;
+  scriptPath = "videos/shows/"+goodTitle+"/epList.js";
   var script = document.createElement("script");
   script.src = scriptPath;
   document.head.appendChild(script);
@@ -33,7 +35,7 @@ function OverlayOff() {
   document.getElementById("videoPlayer").pause()
 }
 function OverlayOffKey(e) {
-  if (e ==27) {
+  if (e == 27) {
     OverlayOff()
     LoginOverlayOff()
   }

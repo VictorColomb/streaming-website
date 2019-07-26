@@ -11,6 +11,31 @@ from math import floor
 # REQUIRES ffmpeg AND bento4 UTILITIES TO BE ACCESSIBLE EVERYWHERE ON THE DEVICE !!!!!!!!!!!!!
 # REQUIRES PYTHON 2.x !!!!!!!!!!!!
 
+while True:
+    subsYN = input('Subtitles ? (y/n): ')
+    if subsYN in ['y','Y','n','N']:
+        break
+    print('Incorrect answer...')
+if subsYN in ['y','Y']:
+    subsYN = True
+else:
+    subsYN = False
+    subs=''
+if subsYN:
+    print('')
+    while True:
+        subsType = input('Subtitles encapsuled in media file (1)? Or external subtitles (2)? : ')
+        if subsType in ['1','2']:
+            break
+        print('Incorret answer...')
+if subsType == '1':
+    subs=' --subtitles'
+else:
+    subsL = input('Subtitle language ? (default eng): ')
+    if subsL == '':
+        subsL = 'en'
+    subs = ' [+format=webvtt,+language='+subsL+']'
+
 cur=p.Path.cwd()
 pp=[x for x in cur.iterdir()]
 ppp=[x for x in pp if not(x.is_dir())]
@@ -70,7 +95,11 @@ print("",'SECTIONNING FILES','====================', sep='\n')
 for i in range(len(PP)):
     print(PPP[i],'   |','='*int(floor(i/length*20)),' '*(20-int(floor(i/length*20))),'|  ',int(floor(i/length*100)),'%', sep='', end='\r')
     sys.stdout.flush()
-    dumbProcess = subprocess.call('mp4dash -o vid'+PPP[i]+' --mpd-name=manifest.mpd --use-segment-timeline --force '+PPPP[i], shell=True, stdout=FNULL)
+    if subsYN and subs != ' --subtitles':
+        subsOut = subs+PPP[i]+'.srt'
+    else:
+        subsOut=subs
+    dumbProcess = subprocess.call('mp4dash -o vid'+PPP[i]+subsOut+' --mpd-name=manifest.mpd --use-segment-timeline --force '+PPPP[i], shell=True, stdout=FNULL)
     os.system('del '+PPPP[i])
     shutil.move('vid'+PPP[i],PPP[i])
     os.chdir(PPP[i])
