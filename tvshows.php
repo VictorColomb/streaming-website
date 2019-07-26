@@ -14,10 +14,28 @@
     .showItem {
       position: relative;
       float:left;
-      margin: 0 0.8333% 20px;
+      margin: 0 0.5% 20px;
       box-sizing: border-box;
       cursor: pointer;
-      width: 15%;
+      width: 10%;
+    }
+    @media screen and (max-width: 2000px) {
+      .showItem {
+        width: 11.25%;
+        margin: 0 0.625% 20px;
+      }
+    }
+    @media screen and (max-width: 1700px) {
+      .showItem {
+        width: 12.857%;
+        margin: 0 0.7142% 20px;
+      }
+    }
+    @media screen and (max-width: 1400px) {
+      .showItem {
+        width: 15%;
+        margin: 0 0.8333% 20px;
+      }
     }
     @media screen and (max-width: 1000px) {
       .showItem {
@@ -64,6 +82,12 @@
       </div>
       <div class="movieOverlayClose"  onclick="OverlayOff()">
         <img src="ressources/Icons/close.png">
+      </div>
+      <div id="movieOverlayDownload">
+        <a id="movieOverlayDownloadButton" href="" download="vid.mp4">
+          <img src="ressources/Icons/download.png">
+        </a>
+        <p class="movieOverlayDownloadSize"></p>
       </div>
     </div>
 
