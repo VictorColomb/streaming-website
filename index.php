@@ -158,7 +158,7 @@
         </ul>
       </div>
 
-      <div id="loginBtnOverlay" onclick="LoginOverlayOn()">
+      <div id="loginBtnOverlay" onclick="ToggleLoginOverlay()">
         <p id="loginBtnOverlayText">Not Signed In</p>
       </div>
 

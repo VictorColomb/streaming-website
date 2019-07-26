@@ -1,3 +1,6 @@
+var movieOverlayisOn = false;
+var loginOverlayisOn = false;
+
 function MovieOverlayOn(title) {
   document.getElementById("overlayTitle").innerHTML = title;
   var vidPath = 'videos/movies/'+title+'/vid/manifest.mpd';
@@ -33,10 +36,23 @@ function OverlayOffKey(e) {
 }
 
 function LoginOverlayOn() {
+  console.log("Oppened Login Overlay");
   document.getElementById("login").style.display = "block";
   document.getElementById("loginBtnOverlay").style.background = "#333";
+  loginOverlayisOn = true;
 }
 function LoginOverlayOff() {
+  console.log("Shut Login Overlay");
   document.getElementById("login").style.display = "none";
   document.getElementById("loginBtnOverlay").style.background = "black";
+  loginOverlayisOn = false;
+}
+
+function ToggleLoginOverlay(){
+  if (loginOverlayisOn) {
+    LoginOverlayOff();
+  }
+  else {
+    LoginOverlayOn();
+  }
 }
