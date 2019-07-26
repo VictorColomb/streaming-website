@@ -100,6 +100,8 @@ for i in range(len(PP)):
     else:
         subsOut=subs
     dumbProcess = subprocess.call('mp4dash -o vid'+PPP[i]+subsOut+' --mpd-name=manifest.mpd --use-segment-timeline --force '+PPPP[i], shell=True, stdout=FNULL)
+    if subsYN and subs != ' --subtitles':
+        os.system('del '+PPP[i]+'.srt')
     os.system('del '+PPPP[i])
     shutil.move('vid'+PPP[i],PPP[i])
     os.chdir(PPP[i])
