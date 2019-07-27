@@ -80,7 +80,18 @@ function loginBtnCLicked() {
 }
 
 function visualChange(el) {
-  document.getElementById(el).style.background = 'red';
+  //cresates a  new style for elements with id el
+  var style = document.createElement('style');
+  style.innerHTML =
+  	'#' + el + ' {' +
+      'background-color: red;'
+  	'}';
+
+  // Get the first script tag
+  var ref = document.querySelector('script');
+
+  // Insert our new styles before the first script tag
+  ref.parentNode.insertBefore(style, ref)
 }
 
 //signs a user in
