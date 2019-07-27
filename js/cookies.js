@@ -25,27 +25,14 @@ function getCookieValue(name) {
 
 //saves the videos watched by a given user-----------------------------Giga pas optimiser
 function setWatched() {
-  requests = added_watched.length;
-  console.log('requests: ' + requests);
-
-  if (requests >= 1) {
+  for (vid of added_watched) {
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST","js/addvideo.php",true);
-    xmlhttp.onreadystatechange = function () {
-      if (this.readyState==4 && this.status==200) {
-        setWatched();
-      }
-    }
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xmlhttp.send("username=" + username + "&video=" + added_watched[requests - 1]);
-    requests = requests - 1;
-    added_watched.pop();
-    console.log(added_watched[requests] + ' was removed');
+    xmlhttp.send("username=" + username + "&video=" + vid);
+    console.log(vid + ' was removed');
   }
-  else{
-      added_watched = [];
-      console.log('added_watched was cleared');
-  }
+  added_watched = [];
 }
 
 //initializes the script
