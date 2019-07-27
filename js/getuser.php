@@ -1,7 +1,7 @@
 <?php
 /* OBJECTIVE: returns the list of videos from an sql database given a user's name*/
 
-$mysqli = new mysqli(/*Server name*/ "127.0.0.1",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "users_data");
+$mysqli = new mysqli(/*Server name*/ "78.193.98.200",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "`streaming_server`");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
