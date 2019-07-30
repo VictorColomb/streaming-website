@@ -30,7 +30,7 @@ for i in range(len(qq)):
         k+=1
     qq=qq[:k]+[qq[i]]+qq[k:i]+qq[i+1:]
 for e in qq:
-    temp = "(\'"+e+"\', \'movie\', \'"+todayDate+"\'),"
+    temp = "(\""+e+"\", \"movie\", \""+todayDate+"\"),"
     moviesSqlQuery += temp
 print(moviesSqlQuery[:-1])
 sql.execute(moviesSqlQuery[:-1])
@@ -112,7 +112,7 @@ for e in qq:
                 PPP=PPP[:k]+[PPP[j]]+PPP[k:j]+PPP[j+1:]
                 PP=PP[:k]+[PP[j]]+PP[k:j]+PP[j+1:]
             for j in range(len(PPP)):
-                temp = "(\'"+e+"_s"+str(ppp[i])+"e"+str(PPP[j])+"\', \'"+todayDate+"\', \'show_ep\', \'"+e+"\', \'"+str(ppp[i])+"\', \'"+str(PPP[j])+"\'),"
+                temp = "(\""+e+"_s"+str(ppp[i])+"e"+str(PPP[j])+"\", \""+todayDate+"\", \"show_ep\", \""+e+"\", \""+str(ppp[i])+"\", \""+str(PPP[j])+"\"),"
                 showsSqlQuery += temp
         os.chdir('..')
     os.chdir('..')
@@ -121,3 +121,4 @@ sql.execute(showsSqlQuery[:-1])
 db.commit()
 sql.close()
 db.close()
+shit = input('Press <Enter> to continue...')
