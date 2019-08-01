@@ -36,6 +36,7 @@ else:
         subsL = 'en'
     subs = ' [+format=webvtt,+language='+subsL+']'
 
+print('')
 cur=p.Path.cwd()
 pp=[x for x in cur.iterdir()]
 ppp=[x for x in pp if not(x.is_dir())]
@@ -80,7 +81,10 @@ for i in range(len(PP)):
     print(PPP[i],'   |','='*int(floor(i/length*20)),' '*(20-int(floor(i/length*20))),'|  ',int(floor(i/length*100)),'%', sep='', end='\r')
     sys.stdout.flush()
     if PPp[i]=='mkv':
-        subprocess.call(['ffmpeg','-loglevel','quiet','-i',PP[i],'-codec','copy',PPP[i]+'.mp4'])
+        if subsYN and subsType=='1':
+            subprocess.call(['ffmpeg','-loglevel','quiet','-i',PP[i],'-c','copy','-c:s','mov_text',PPP[i]+'.mp4'])
+        else:
+            subprocess.call(['ffmpeg','-loglevel','quiet','-i',PP[i],'-c','copy',PPP[i]+'.mp4'])
         os.system('del '+PP[i])
         PP[i]=PPP[i]+'.mp4'
     os.system('mkdir '+PPP[i])
@@ -109,4 +113,5 @@ for i in range(len(PP)):
     os.system('ren '+PP[i]+' vid.mp4')
     os.chdir('..')
 print(PPP[length-1],'   |','='*20,'|  100%',sep='')
+print('')
 shit = input('Press <Enter> to continue...')
