@@ -5,14 +5,17 @@ import mysql.connector
 import datetime
 
 # REGLAGES DATABASE ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-db = mysql.connector.connect(host="localhost", user="python", passwd="Lulubad7883", database="streaming_server")
+db = mysql.connector.connect(host="78.193.98.200", user="python", passwd="Lulubad7883", database="streaming_server")
 sql = db.cursor()
-
-os.chdir("C:/Users/vicco/Documents/Streaming website")
 
 todayDate = str(datetime.datetime.now()).split(' ')[0]
 
-moviesSqlQuery = "INSERT IGNORE INTO movies (name, type, date_added) VALUES "
+sql.execute("SELECT name FROM movies WHERE type=\'movie\'")
+moviesAlready = [x[0] for x in sql]
+sql.execute("SELECT name FROM movies WHERE type=\'show_ep\'")
+showepAlready = [x[0] for x in sql]
+
+moviesSqlQuery = "INSERT IGNORE INTO movies (name, type, date_added, date_released) VALUES "
 
 # MOVIES
 os.chdir('videos/movies')
@@ -29,19 +32,25 @@ for i in range(len(qq)):
     while k<i and qq[k]<qq[i]:
         k+=1
     qq=qq[:k]+[qq[i]]+qq[k:i]+qq[i+1:]
+exec = False
 for e in qq:
-    temp = "(\""+e+"\", \"movie\", \""+todayDate+"\"),"
-    moviesSqlQuery += temp
+    if not(e in moviesAlready):
+        exec = True
+        dr = input(e+' - Date released ? (YYYY-MM-DD) : ')
+        temp = "(\""+e+"\", \"movie\", \""+todayDate+"\", \""+dr+"\"),"
+        moviesSqlQuery += temp
 print(moviesSqlQuery[:-1])
-sql.execute(moviesSqlQuery[:-1])
+if exec:
+    sql.execute(moviesSqlQuery[:-1])
 os.chdir('..')
 
 # TV SHOWS
-showsSqlQuery = "INSERT IGNORE INTO movies (name, date_added, type, serie, season, ep) VALUES "
+showsSqlQuery = "INSERT IGNORE INTO movies (name, date_added, date_released, type, serie, season, ep) VALUES "
 os.chdir('shows')
 currentPath=p.Path.cwd()
 pathList=[x for x in currentPath.iterdir() if x.is_dir()]
 qq=[str(x) for x in pathList]
+exec = False
 for i in range(len(qq)):
     k=len(qq[i])-1
     while qq[i][k]!='\\':
@@ -112,12 +121,16 @@ for e in qq:
                 PPP=PPP[:k]+[PPP[j]]+PPP[k:j]+PPP[j+1:]
                 PP=PP[:k]+[PP[j]]+PP[k:j]+PP[j+1:]
             for j in range(len(PPP)):
-                temp = "(\""+e+"_s"+str(ppp[i])+"e"+str(PPP[j])+"\", \""+todayDate+"\", \"show_ep\", \""+e+"\", \""+str(ppp[i])+"\", \""+str(PPP[j])+"\"),"
-                showsSqlQuery += temp
+                if not(e+"_s"+str(ppp[i])+"e"+str(PPP[j]) in showepAlready):
+                    exec = True
+                    dr = input(e+" S"+str(ppp[i])+"E"+str(PPP[j])+" - Date released ? (YYYY-MM-DD) : ")
+                    temp = "(\""+e+"_s"+str(ppp[i])+"e"+str(PPP[j])+"\", \""+todayDate+"\", \""+dr+"\", \"show_ep\", \""+e+"\", \""+str(ppp[i])+"\", \""+str(PPP[j])+"\"),"
+                    showsSqlQuery += temp
         os.chdir('..')
     os.chdir('..')
 print(showsSqlQuery[:-1])
-sql.execute(showsSqlQuery[:-1])
+if exec:
+    sql.execute(showsSqlQuery[:-1])
 db.commit()
 sql.close()
 db.close()
