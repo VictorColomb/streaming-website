@@ -50,7 +50,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
   <head>
     <meta charset="utf-8">
     <title>Streaming - Fill database</title>
-    <link rel="icon" href="ressources/favicon.jpg">
+    <link rel="icon" href="../ressources/favicon.jpg">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <style media="screen">
       h2,h3,h4,h5 {
@@ -76,7 +76,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
         if (mysqli_fetch_row($stmt) == false) {
           echo '<h3 style="margin:0;">'.$movie."</h3>";
           ?>
-          <input type="text" name="name[]" value="<?php echo $movie; ?>" style="display:none;">
+          <input type="hidden" name="name[]" value="<?php echo $movie; ?>">
           <input class="shit" type="text" name="year[]" placeholder="YYYY" size="4" maxlength="4">
           <input class="shit" type="text" name="month[]" placeholder="MM" size="2" maxlength="2">
           <input class="shit" type="text" name="day[]" placeholder="DD" size="2" maxlength="2"><br>
@@ -120,9 +120,9 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
                   $isthereseason[$keykey] = true;
                   echo '<br><h5 style="margin:0;">Episode '.$epNo."</h5>";
                   ?>
-                  <input type="text" name="show[]" value="<?php echo $show ?>" style="display:none;">
-                  <input type="text" name="season[]" value="<?php echo $seasonNo; ?>" style="display:none;">
-                  <input type="text" name="episode[]" value="<?php echo $epNo; ?>" style="display:none;">
+                  <input type="hidden" name="show[]" value="<?php echo $show ?>">
+                  <input type="hidden" name="season[]" value="<?php echo $seasonNo; ?>">
+                  <input type="hidden" name="episode[]" value="<?php echo $epNo; ?>">
                   <input class="shit" type="text" name="year[]" placeholder="YYYY" size="4" maxlength="4">
                   <input class="shit" type="text" name="month[]" placeholder="MM" size="2" maxlength="2">
                   <input class="shit" type="text" name="day[]" placeholder="DD" size="2" maxlength="2"><br>

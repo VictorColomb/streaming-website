@@ -183,7 +183,7 @@
     </div>
 
     <div id="header">
-      <div class="logo"><img src=ressources/netflix.jpg height=33.2px width=20px></div>
+      <div class="logo"><a href="."><img src=ressources/netflix.jpg height=33.2px width=20px></a> </div>
         <div class="leftMenu">
           <ul>
             <li>
@@ -199,14 +199,15 @@
         <p id="loginBtnOverlayText">Not Signed In</p>
       </div>
 
-        <!-- ACTIVATE SEARCH BAR -->
       <div class="search">
-        <div class="searchbar">
-          <input type="text" value="" name="search_box" placeholder="Search...">
-        </div>
-        <div class="searchIcon">
-          <img src="ressources/Icons/search.png">
-        </div>
+        <form action="search.php" method="get">
+          <div class="searchbar">
+              <input type="text" name="q" placeholder="Search...">
+          </div>
+          <div class="searchIcon">
+            <input type="image" src="ressources/Icons/search.png">
+          </div>
+        </form>
       </div>
 
     </div>
@@ -263,8 +264,7 @@
   }
   while ($movie_name = mysqli_fetch_assoc($stmt)) {
     $movie_name_str = $movie_name['name'];
-    $movie_id_temp = str_replace(" ", "_", $movie_name_str);
-    $movie_id = str_replace("'", ",", $movie_id_temp);
+    $movie_id = str_replace("'", ",", str_replace(" ", "_", $movie_name_str));
     $movie_name_str_corr = str_replace("'",",", $movie_name_str);
     $tilde="'";
     echo '<div class="movieItem" id="'.$movie_id.'" onclick="MovieOverlayOn('.$tilde.$movie_name_str_corr.$tilde.');iwatched('.$tilde.$movie_id.$tilde.')"><div class="movie_img_wrap"><img src="videos/movies/'.$movie_name_str.'/thumb.jpg" width="100%"><p class="movie_image_description">'.$movie_name_str.'</p></div></div>';
@@ -297,7 +297,7 @@
     $movie_name_str = $movie_name['serie'];
     $movie_name_str_corr = str_replace("'",",", $movie_name_str);
     $tilde="'";
-    echo '<div class="showItem" onclick="MovieOverlayOn('.$tilde.$movie_name_str_corr.$tilde.')"><div class="tv_img_wrap"><img src="videos/shows/'.$movie_name_str.'/thumb.jpg"><p class="tv_image_description">'.$movie_name_str.'</p></div></div>';
+    echo '<div class="showItem" onclick="ShowOverlayOn('.$tilde.$movie_name_str_corr.$tilde.')"><div class="tv_img_wrap"><img src="videos/shows/'.$movie_name_str.'/thumb.jpg"><p class="tv_image_description">'.$movie_name_str.'</p></div></div>';
   }
 ?>
       </div>

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<?php
+  $mysqli = new mysqli(/*Server name*/ "78.193.98.200",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "streaming_server");
+  if($mysqli->connect_error) {
+    exit('Could not connect');
+  }
+?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -103,24 +111,54 @@
           </li>
         </ul>
       </div>
-      <!-- ACTIVATE SEARCH BAR -->
       <div class="search">
-        <div class="searchIcon">
-          <img src="ressources/Icons/search.png">
+        <form action="search.php" method="get">
+          <div class="searchbar">
+              <input type="text" name="q" placeholder="Search...">
+          </div>
+          <div class="searchIcon">
+            <input type="image" src="ressources/Icons/search.png">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="sortSelector">
+      <div id="sortSelectorInside">
+        <div id="sortDropdown">
+          <a href="?sort=name">Name</a>
+          <a href="?sort=date_added">Date added</a>
+          <a href="?sort=date_released">Date released</a>
         </div>
-        <div class="searchbar">
-          <input type="text" value="" name="search_box" placeholder="Search...">
-        </div>
+        <button id="sortButton">Sort by</button>
       </div>
     </div>
 
     <div id="content" style="margin:30px 2% 10px;">
-<?php
-          $fn = fopen("js/movies.txt","r");
-          $result = fgets($fn);
-          echo $result;
-          fclose($fn);
-?>
+      <?php
+        $querry = "SELECT name FROM movies WHERE type='movie' ORDER BY ";
+        /* bind_param("s",$_POST['sort']) SI le parametre POST existe et bind_param("s","name") sinon*/
+        if (isset($_GET['sort'])) {
+          if ($_GET['sort']=='date_released') {
+            $sort = 'date_released DESC';
+          } elseif ($_GET['sort']=='date_added') {
+            $sort = 'date_added DESC';
+          } else {
+            $sort = $_GET['sort'];
+          }
+          $stmt = $mysqli->query($querry.$sort) or die('SQL ERROR<br>'.mysqli_error());
+        } else {
+          $sort = 'name';
+          $stmt = $mysqli->query($querry.$sort) or die('SQL ERROR<br>'.mysqli_error());
+        }
+        while ($movie_name = mysqli_fetch_assoc($stmt)) {
+          $movie_name_str = $movie_name['name'];
+          $movie_id = str_replace("'", ",", str_replace(" ", "_", $movie_name_str));
+          $movie_name_str_corr = str_replace("'",",", $movie_name_str);
+          $tilde="'";
+          echo '<div class="movieItem" id="'.$movie_id.'" onclick="MovieOverlayOn('.$tilde.$movie_name_str_corr.$tilde.');iwatched('.$tilde.$movie_id.$tilde.')"><div class="movie_img_wrap"><img src="videos/movies/'.$movie_name_str.'/thumb.jpg" width="100%"><p class="movie_image_description">'.$movie_name_str.'</p></div></div>';
+        }
+      ?>
     </div>
   </body>
 </html>
