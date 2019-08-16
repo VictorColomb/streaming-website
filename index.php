@@ -249,7 +249,14 @@
   $querry = "SELECT name FROM movies WHERE type='movie' ORDER BY ";
   /* bind_param("s",$_POST['sort']) SI le parametre POST existe et bind_param("s","name") sinon*/
   if (isset($_GET['sort'])) {
-    $stmt = $mysqli->query($querry.$_GET['sort']) or die('SQL ERROR<br>'.mysqli_error());
+    if ($_GET['sort']=='date_released') {
+      $sort = 'date_released DESC';
+    } elseif ($_GET['sort']=='date_added') {
+      $sort = 'date_added DESC';
+    } else {
+      $sort = $_GET['sort'];
+    }
+    $stmt = $mysqli->query($querry.$sort) or die('SQL ERROR<br>'.mysqli_error());
   } else {
     $sort = 'name';
     $stmt = $mysqli->query($querry.$sort) or die('SQL ERROR<br>'.mysqli_error());
@@ -274,10 +281,10 @@
   /* bind_param("s",$_POST['sort']) SI le parametre POST existe et bind_param("s","name") sinon*/
   if (isset($_GET['sort'])) {
     if ($_GET['sort'] == 'date_added') {
-      $sort='da';
+      $sort='da DESC';
     }
     else if ($_GET['sort'] == 'date_released') {
-      $sort='dr';
+      $sort='dr DESC';
     }
     else {
       $sort='serie';
