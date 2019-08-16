@@ -30,7 +30,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
     $submitted = "";
     foreach($_POST['show'] as $key => $value) {
       if (strlen($_POST['year'][$key])==4 and strlen($_POST['month'][$key])==2 and strlen($_POST['day'][$key])==2) {
-        $querry = 'INSERT IGNORE INTO movies (name, type, date_added, date_released, season, ep) VALUES ("'.$_POST['show'][$key].'_s'.$_POST['season'][$key].'e'.$_POST['episode'][$key].'","show_ep","'.$year.'-'.$month.'-'.$day.'","'.$_POST['year'][$key].'-'.$_POST['month'][$key].'-'.$_POST['day'][$key].'","'.$_POST['season'][$key].'","'.$_POST['episode'][$key].'")';
+        $querry = 'INSERT IGNORE INTO movies (name, type, date_added, date_released, season, ep, serie) VALUES ("'.$_POST['show'][$key].'_s'.$_POST['season'][$key].'e'.$_POST['episode'][$key].'","show_ep","'.$year.'-'.$month.'-'.$day.'","'.$_POST['year'][$key].'-'.$_POST['month'][$key].'-'.$_POST['day'][$key].'","'.$_POST['season'][$key].'","'.$_POST['episode'][$key].'","'.$_POST['show'][$key].'")';
         $submitted .= $querry."\r\n";
         $mysqli->query($querry);
       }
