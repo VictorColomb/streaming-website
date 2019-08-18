@@ -75,12 +75,24 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
         $stmt = $mysqli->query('SELECT name FROM movies WHERE name="'.$movie.'" LIMIT 1');
         if (mysqli_fetch_row($stmt) == false) {
           echo '<h3 style="margin:0;">'.$movie."</h3>";
-          ?>
-          <input type="hidden" name="name[]" value="<?php echo $movie; ?>">
-          <input class="shit" type="text" name="year[]" placeholder="YYYY" size="4" maxlength="4">
-          <input class="shit" type="text" name="month[]" placeholder="MM" size="2" maxlength="2">
-          <input class="shit" type="text" name="day[]" placeholder="DD" size="2" maxlength="2"><br>
-          <?php
+          $response = file_get_contents("http://www.omdbapi.com/?apikey=fbe46a12&t=".urlencode($movie));
+          $response = json_decode($response,true);
+          if (isset($response['Response']) and $response['Response'] == 'True') {
+            $date = strtotime(str_replace(" ", "-", $response['Released']));
+            ?>
+            <input type="hidden" name="name[]" value="<?php echo $movie; ?>">
+            <input class="shit" type="text" name="year[]" value="<?php echo date("Y",$date); ?>" size="4" maxlength="4">
+            <input class="shit" type="text" name="month[]" value="<?php echo date("m",$date); ?>" size="2" maxlength="2">
+            <input class="shit" type="text" name="day[]" value="<?php echo date("d",$date); ?>" size="2" maxlength="2"><br>
+            <?php
+          } else {
+            ?>
+            <input type="hidden" name="name[]" value="<?php echo $movie; ?>">
+            <input class="shit" type="text" name="year[]" placeholder="YYYY" size="4" maxlength="4">
+            <input class="shit" type="text" name="month[]" placeholder="MM" size="2" maxlength="2">
+            <input class="shit" type="text" name="day[]" placeholder="DD" size="2" maxlength="2"><br>
+            <?php
+          }
         }
       }
     }
@@ -119,14 +131,28 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
                   $isthereep = true;
                   $isthereseason[$keykey] = true;
                   echo '<br><h5 style="margin:0;">Episode '.$epNo."</h5>";
-                  ?>
-                  <input type="hidden" name="show[]" value="<?php echo $show ?>">
-                  <input type="hidden" name="season[]" value="<?php echo $seasonNo; ?>">
-                  <input type="hidden" name="episode[]" value="<?php echo $epNo; ?>">
-                  <input class="shit" type="text" name="year[]" placeholder="YYYY" size="4" maxlength="4">
-                  <input class="shit" type="text" name="month[]" placeholder="MM" size="2" maxlength="2">
-                  <input class="shit" type="text" name="day[]" placeholder="DD" size="2" maxlength="2"><br>
-                  <?php
+                  $response = file_get_contents("http://www.omdbapi.com/?apikey=fbe46a12&t=".urlencode($show)."&season=".$seasonNo."&episode=".$epNo);
+                  $response = json_decode($response,true);
+                  if (isset($response['Response']) and $response['Response']=='True') {
+                    $date = strtotime(str_replace(" ", "-", $response['Released']));
+                    ?>
+                    <input type="hidden" name="show[]" value="<?php echo $show ?>">
+                    <input type="hidden" name="season[]" value="<?php echo $seasonNo; ?>">
+                    <input type="hidden" name="episode[]" value="<?php echo $epNo; ?>">
+                    <input class="shit" type="text" name="year[]" value="<?php echo date("Y",$date); ?>" size="4" maxlength="4">
+                    <input class="shit" type="text" name="month[]" value="<?php echo date("m",$date); ?>" size="2" maxlength="2">
+                    <input class="shit" type="text" name="day[]" value="<?php echo date("d",$date); ?>" size="2" maxlength="2"><br>
+                    <?php
+                  } else {
+                    ?>
+                    <input type="hidden" name="show[]" value="<?php echo $show ?>">
+                    <input type="hidden" name="season[]" value="<?php echo $seasonNo; ?>">
+                    <input type="hidden" name="episode[]" value="<?php echo $epNo; ?>">
+                    <input class="shit" type="text" name="year[]" placeholder="YYYY" size="4" maxlength="4">
+                    <input class="shit" type="text" name="month[]" placeholder="MM" size="2" maxlength="2">
+                    <input class="shit" type="text" name="day[]" placeholder="DD" size="2" maxlength="2"><br>
+                    <?php
+                  }
                 }
               }
             }
