@@ -2,7 +2,7 @@
 
 
 <?php
-  $mysqli = new mysqli(/*Server name*/ "78.193.98.200",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "streaming_server");
+  $mysqli = new mysqli(/*Server name*/ "localhost",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "streaming_server");
   if($mysqli->connect_error) {
     exit('Could not connect to database');
   }
@@ -75,7 +75,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
         $stmt = $mysqli->query('SELECT name FROM movies WHERE name="'.$movie.'" LIMIT 1');
         if (mysqli_fetch_row($stmt) == false) {
           echo '<h3 style="margin:0;">'.$movie."</h3>";
-          $response = file_get_contents("http://www.omdbapi.com/?apikey=fbe46a12&t=".urlencode($movie));
+          $response = file_get_contents("http://www.omdbapi.com/?apikey=!!!YOUR-OMDB-KEY!!!&t=".urlencode($movie));
           $response = json_decode($response,true);
           if (isset($response['Response']) and $response['Response'] == 'True') {
             $date = strtotime(str_replace(" ", "-", $response['Released']));
@@ -131,7 +131,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
                   $isthereep = true;
                   $isthereseason[$keykey] = true;
                   echo '<br><h5 style="margin:0;">Episode '.$epNo."</h5>";
-                  $response = file_get_contents("http://www.omdbapi.com/?apikey=fbe46a12&t=".urlencode($show)."&season=".$seasonNo."&episode=".$epNo);
+                  $response = file_get_contents("http://www.omdbapi.com/?apikey=!!!YOUR-OMDB-KEY!!!&t=".urlencode($show)."&season=".$seasonNo."&episode=".$epNo);
                   $response = json_decode($response,true);
                   if (isset($response['Response']) and $response['Response']=='True') {
                     $date = strtotime(str_replace(" ", "-", $response['Released']));

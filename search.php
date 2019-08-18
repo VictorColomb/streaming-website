@@ -6,7 +6,7 @@
     header('Location: ./..');
     exit();
   }
-  $mysqli = new mysqli(/*Server name*/ "78.193.98.200",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "streaming_server");
+  $mysqli = new mysqli(/*Server name*/ "localhost",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "streaming_server");
   if($mysqli->connect_error) {
     exit('Could not connect');
   }
