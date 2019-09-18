@@ -2,6 +2,7 @@
 
 
 <?php
+  error_reporting(0);
   $mysqli = new mysqli(/*Server name*/ "localhost",/*User name*/  "phpuser",/*password*/  "phpuser",/*DB name*/  "streaming_server");
   if($mysqli->connect_error) {
     exit('Could not connect to database');
@@ -63,7 +64,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
     </style>
   </head>
   <body>
-    <a href="."><h1>Submitting entries to the database (78.193.98.200)</h1></a>
+    <a href="."><h1>Submitting entries to the database</h1></a>
     <!-- MOVIES -->
     <h2>Movies</h2>
     <form class="moviesSubmit" action="?submit=movies" method="post">
@@ -112,24 +113,28 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
     $dir = array_diff(scandir($dir_path), array('..', '.'));
     foreach ($dir as $key => $show) {
       if (is_dir($dir_path."/".$show)) {
-        $isthereseason = [];
+        $isthereseason = true;
         $showid = str_replace(' ','_',str_replace("'",",",$show));
-        echo '<h3 id="'.$showid.'" style="margin:0;">'.$show."</h3>";
+
         $dirdir = array_diff(scandir($dir_path."/".$show), array('..', '.'));
         foreach ($dirdir as $keykey => $season) {
           if (is_dir($dir_path."/".$show."/".$season) and substr($season,0,1)=="S") {
-            $isthereseason[$keykey] = false;
-            $isthereep = false;
+            $isthereep = true;
             $seasonNo = substr($season,1);
-            echo '<br><h4 id="'.$showid.'_S'.$seasonNo.'" style="margin:0;">Season '.$seasonNo."</h4>";
             $dirdirdir = array_diff(scandir($dir_path."/".$show."/".$season), array('..', '.'));
             foreach ($dirdirdir as $keykeykey => $ep) {
               if (is_dir($dir_path."/".$show."/".$season."/".$ep) and substr($ep,0,1)=="E") {
                 $stmt = $mysqli->query('SELECT name FROM movies WHERE name="'.$show."_".$season.$ep.'" LIMIT 1');
                 if (mysqli_fetch_row($stmt) == false) {
                   $epNo = substr($ep,1);
-                  $isthereep = true;
-                  $isthereseason[$keykey] = true;
+                  if ($isthereseason) {
+                    echo '<h3 id="'.$showid.'" style="margin:0;">'.$show."</h3>";
+                  }
+                  $isthereseason = false;
+                  if ($isthereep) {
+                    echo '<br><h4 id="'.$showid.'_S'.$seasonNo.'" style="margin:0;">Season '.$seasonNo."</h4>";
+                  }
+                  $isthereep = false;
                   echo '<br><h5 style="margin:0;">Episode '.$epNo."</h5>";
                   $response = file_get_contents("http://www.omdbapi.com/?apikey=!!!YOUR-OMDB-KEY!!!&t=".urlencode($show)."&season=".$seasonNo."&episode=".$epNo);
                   $response = json_decode($response,true);
@@ -156,21 +161,7 @@ if (isset($_GET['submit']) and isset($_POST['year'])) {
                 }
               }
             }
-            if (!$isthereep) {
-              ?>
-              <script>
-                document.getElementById('<?php echo $showid."_".$season ?>').style.display = "none";
-              </script>
-              <?php
-            }
           }
-        }
-        if (!in_array(true,$isthereseason)) {
-          ?>
-          <script>
-            document.getElementById('<?php echo $showid; ?>').style.display = "none";
-          </script>
-          <?php
         }
       }
     }
