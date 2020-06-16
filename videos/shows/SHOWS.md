@@ -1,4 +1,4 @@
-# Folder organisation for shows
+# Folder organization for shows
 
 - shows
      - Show1

@@ -1,4 +1,4 @@
-# Folder organisation for movies
+# Folder organization for movies
 
 - movies
      - Movie1
